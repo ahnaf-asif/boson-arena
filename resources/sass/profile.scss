@@ -1,0 +1,43 @@
+.user-profile-pic{
+    max-width: 200px;
+    border: 2px solid #8994ab;
+}
+.profile-pic-file-input{
+    width: 108px !important;
+}
+.user-info{
+    margin-top: 40px;
+    padding: 20px 0;
+    //border-bottom: 2px solid #8994ab;
+}
+.single-detail{
+    padding-top: 10px;
+}
+
+.solved-problems, .contests-participated{
+    padding: 20px 15px;
+}
+.solved-problems{
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+.contests-participated{
+    //margin-top: 40px;
+    min-height: 400px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+.not-yet{
+    font-size: 35px;
+    height: 400px;
+    //height: 100%;
+    //background: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heading-stats{
+    font-size: 25px;
+}
+

@@ -5,11 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">
+                    <h3>
+                        {{ __('Register') }}
+                    </h3>
+                </div>
 
                 <div class="card-body">
+{{--                    checkRegistration--}}
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -18,7 +24,20 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" >
+
+                                @error('username')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -38,6 +57,85 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="institution" class="col-md-4 col-form-label text-md-right">{{ __('Institution') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="institution" type="text" class="form-control @error('institution') is-invalid @enderror" name="institution" value="{{ old('institution') }}" required autocomplete="institution" >
+
+                                @error('institution')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" >
+
+                                @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" >
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="social_media_link" class="col-md-4 col-form-label text-md-right">{{ __('Social Media link (optional)') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="social_media_link" type="text" class="form-control @error('social_media_link') is-invalid @enderror" name="social_media_link" value="{{ old('social_media_link') }}" autocomplete="social_media_link" placeholder="i.e facebook profile link" >
+
+                                @error('social_media_link')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Class/ Year') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="educational_level_id" class="form-select" aria-label="Default select example">
+                                    <?php
+                                        $i = 0;
+                                    ?>
+                                    @foreach($data as $d)
+                                        <?php $i++; ?>
+                                        <option
+                                            value="{{$d->id}}"
+                                            @if($i == 1)
+                                                selected
+                                            @endif
+                                        >{{$d->name}}</option>
+                                    @endforeach
+                                </select>
+{{--                                {{$data}}--}}
+                            </div>
+                        </div>
+
+
+
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

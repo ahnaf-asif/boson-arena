@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\EducationalLevel;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -47,14 +48,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        $values = EducationalLevel::all();
+        $data = ['data'=>$values];
+        return view('auth.register', $data);
+    }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -62,12 +74,23 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
+
+
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
+            'username' => $data['username'],
+            'institution' => $data['institution'],
+            'phone' => $data['phone'],
+            'educational_level_id' => $data['educational_level_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'social_media_link' => $data['social_media_link']
         ]);
     }
+
+
 }
