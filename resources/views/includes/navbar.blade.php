@@ -21,59 +21,65 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                                <span>
-                                    <i class="fas fa-trophy"></i>
-                                    Olympiad
-                                </span>
+                            <span>
+                                <i class="fas fa-medal"></i> Problems
+                            </span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                                <span>
-                                <i class="fas fa-code-branch"></i>
-                                 Quiz
-                                </span>
-                        </a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="#">--}}
+{{--                            <span>--}}
+{{--                               <i class="fas fa-medal"></i> Olympiad--}}
+{{--                            </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="#">--}}
+{{--                            <span>--}}
+{{--                              <i class="fas fa-medal"></i>  Quiz--}}
+{{--                            </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+
                     <li class="nav-item dropdown">
                         <a
-                            id="event"
+                            id="navbarDropdown1"
                             class="nav-link dropdown-toggle"
                             href="#" role="button"
                             data-mdb-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                            Other Events
+                            Contests
                         </a>
 
 
-                        <div class="dropdown-menu nav-dropdown" aria-labelledby="event">
+                        <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="{{route('profile', ['username'=>'asifthen00b'])}}">
+                                <i class="far fa-id-badge"></i> Olympiad
+                            </a>
 
                             <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Scientific Meme contest
+                                <i class="far fa-folder"></i> Quiz
                             </a>
-
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Google It
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Photography
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Iq Test
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Puzzle Solving
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Crack The Word
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Article Writing
-                            </a>
-
                         </div>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span>
+                               <i class="fas fa-medal"></i> Events
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span>
+                              <i class="fas fa-medal"></i>  Blog
+                            </span>
+                        </a>
+                    </li>
+
                     @guest
                         @if(Route::has('login'))
                             <li class="nav-item">

@@ -12,10 +12,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function(){
 
-    Route::get('profile/{username}', [ProfileController::class , 'index'])->name('profile');
-    route::get('profile/{username}/edit', [ProfileController::class, 'showProfileEditForm'])->name('profile.edit');
-    Route::post('profile/{username}/edit' , [ProfileController::class, 'editProfile'])->name('profile.edit.backend');
-    Route::post('profile/picture/update', [ProfileController::class, 'updateProfilePicture'])->name('profile.picture.update');
+    Route::prefix('profile')->group(function(){
+        Route::get('/{username}/', [ProfileController::class , 'index'])->name('profile');
+        route::get('/{username}/edit', [ProfileController::class, 'showProfileEditForm'])->name('profile.edit');
+        Route::post('/{username}/edit' , [ProfileController::class, 'editProfile'])->name('profile.edit.backend');
+        Route::post('/picture/update', [ProfileController::class, 'updateProfilePicture'])->name('profile.picture.update');
+    });
 
 });
 Route::middleware(['author'])->group(function(){

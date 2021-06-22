@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('institution');
             $table->string('address')->default(null)->nullable();
             $table->string('social_media_link')->default(null)->nullable();
+            $table->string('profile_picture_link')->nullable();
             $table->string('phone');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

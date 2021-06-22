@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('custom-js')
+    <script src="{{ asset('js/profile.js') }} "></script>
+@endsection
+
 @section('content')
 
 
@@ -7,6 +11,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+
+                @include('includes.edit-profile-picture')
+
+                <br><br>
+
                 <div class="card">
                     <div class="card-header">
                         <h3>
@@ -165,3 +174,9 @@
         </div>
     @endif
 @endsection
+
+
+<script>
+
+
+</script>

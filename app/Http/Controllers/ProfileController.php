@@ -33,6 +33,12 @@ class ProfileController extends Controller
 
     }
     public function updateProfilePicture(Request $request){
+        $current_user = User::find($request->user_id);
 
+        $current_user->profile_picture_link = $request->picture_link;
+
+        $current_user->save();
+
+        return redirect()->route('profile',['username'=> $current_user->username]);
     }
 }

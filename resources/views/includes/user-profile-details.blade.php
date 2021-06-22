@@ -1,13 +1,12 @@
 <div class="container-fluid">
     <div class="text-center">
-        <img class="user-profile-pic" src="{{asset('images/blank-profile-picture.png')}}" alt="user_profile_picture">
-
-        <form action="#" method="post">
-            <label class="form-label" for="customFile">Update profile picture</label>
-            <div class="" style="display: flex;justify-content: center;">
-                <input name="profile_pic" type="file" class="form-control profile-pic-file-input" id="customFile" />
-            </div>
-        </form>
+        <img class="user-profile-pic" src="
+            @if(Auth::user()->profile_picture_link)
+                {{Auth::user()->profile_picture_link}}
+            @else
+                {{asset('images/blank-profile-picture.png')}}
+            @endif
+            " alt="user_profile_picture">
         <br>
         <br>
         <h1 class="text-center fw-bold">{{Auth::user()->name}}</h1>
@@ -55,3 +54,15 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    // const profilePicture = document.getElementById('profilePicture');
+    // const profilePictureUpload = document.getElementById(('profilePictureSubmit'));
+    //
+    //
+    // profilePictureUpload.disabled = true;
+    // profilePicture.addEventListener('change',()=>{
+    //     profilePictureUpload.disabled = false;
+    // });
+</script>

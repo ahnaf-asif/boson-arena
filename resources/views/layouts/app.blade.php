@@ -28,7 +28,9 @@
 
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 
-    @yield('custom-css-js')
+    @yield('custom-css')
+
+{{--    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src example.com;">--}}
 
 </head>
 <style>
@@ -51,5 +53,8 @@
     @include('includes.footer')
 
     <script src="{{ asset('js/mdb.min.js') }} "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    @yield('custom-js')
 </body>
 </html>

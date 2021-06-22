@@ -10008,12 +10008,12 @@ h3 {
 }
 
 .user-profile-pic {
-  max-width: 200px;
+  max-width: 300px;
   border: 2px solid #8994ab;
 }
 
 .profile-pic-file-input {
-  width: 108px !important;
+  max-width: 250px !important;
 }
 
 .user-info {
