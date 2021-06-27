@@ -1,9 +1,9 @@
 @media (min-width: 992px) {
     .my-navbar{
-        height: 75px;
+        height: 70px;
     }
     .navbar-collapse{
-        height: 75px;
+        height: 70px;
     }
     .navbar-inside-1, .navbar-inside-2, .navbar-inside-3, .nav-link{
         height: 100%;
@@ -44,6 +44,7 @@
     }
     .navbar-brand{
         padding-left: 10px !important;
+        font-weight: bolder !important;
     }
     /* .navbar-inside-1{
         margin: 0 !important;
@@ -54,6 +55,9 @@
     } */
     .nav-dropdown{
         min-width: 90% !important;
+    }
+    .login-regi{
+        margin-left: 10px !important;
     }
 }
 .nav-dropdown{
@@ -75,6 +79,7 @@
 }
 .my-navbar{
     padding: 0 !important;
+    background: #a62100 !important;
 }
 
 .navbar-collapse{
@@ -83,12 +88,19 @@
 }
 .nav-link{
     color:white !important;
-    font-size: 18px;
+    font-size: 17px;
     margin: 0 10px;
     padding-left: 20px;
     padding-right: 20px;
     /* background: red; */
 }
 .nav-link:hover, .nav-link:active{
-    background: #144b78;
+    background: #ff9900;
+}
+
+.form-header-h2{
+    font-weight: bolder !important;
+}
+.form-select, .form-control{
+    border-radius: 0 !important;
 }

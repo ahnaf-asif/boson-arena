@@ -19,9 +19,9 @@ class Admin
     {
         if(Auth::user()){
             foreach(Auth::user()->roles as $role){
-                if($role == 'admin')return $next($request);
+                if($role->name == 'admin')return $next($request);
             }
         }
-        return redirect('home')->with('error','You do not have author access');
+        return redirect()->route('home')->with('error','You do not have admin access');
     }
 }

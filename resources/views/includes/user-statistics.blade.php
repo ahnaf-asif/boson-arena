@@ -8,7 +8,7 @@
         <div class="row flex-wrap ">
         @for($i = 0; $i <= 10;$i++)
             <div class="col-4 my-3">
-                <a href="#">mama khaise notir pola</a>
+                <a href="#">Problem name here</a>
             </div>
         @endfor
         </div>

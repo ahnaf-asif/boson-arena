@@ -28,6 +28,8 @@
 
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{asset('trumbowyg/dist/ui/trumbowyg.min.css')}}">
+
     @yield('custom-css')
 
 {{--    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src example.com;">--}}
@@ -36,10 +38,9 @@
 <style>
     body{
         font-family: 'Roboto', sans-serif;
-        background-image: url('https://gonitzoggo.com/assets/images/geometry.png');
+        background-image: url('{{asset('bg_img/bg-1.jpg')}}');
         box-sizing: border-box;;
     }
-
 </style>
 <body>
     <div id="app">
@@ -54,7 +55,8 @@
 
     <script src="{{ asset('js/mdb.min.js') }} "></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
+    <script src="{{asset('trumbowyg/dist/trumbowyg.min.js')}}"></script>
+    <script src="//rawcdn.githack.com/RickStrahl/jquery-resizable/master/dist/jquery-resizable.min.js"></script>
     @yield('custom-js')
 </body>
 </html>

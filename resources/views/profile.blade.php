@@ -5,13 +5,24 @@
 @endsection
 
 @section('content')
+
     @if(Auth::user()->username == $username)
-    <div class="container">
+    <div class="container-fluid">
+        @if(session('message'))
+        <div class="container-fluid">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="text-center">
+                    <strong class="text-center">{{session('message')}}</strong>
+                </div>
+{{--                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>--}}
+            </div>
+        </div>
+        @endif
         <div class="row">
-            <div class=" col-12 col-sm-12 col-md-5" style="margin-bottom: 20px;">
+            <div class=" col-12 col-sm-12 col-md-6 col-lg-5" style="margin-bottom: 20px;">
                 @include('includes.user-profile-details')
             </div>
-            <div class=" col-12 col-sm-12 col-md-7">
+            <div class=" col-12 col-sm-12 col-md-6 col-lg-7">
                 @include('includes.user-statistics')
             </div>
         </div>

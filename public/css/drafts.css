@@ -1,0 +1,46 @@
+.drafts{
+    min-height: 80vh;
+    background: white;
+    padding: 30px;
+
+}
+
+.drafts-header {
+    display: flex;
+    /*align-items: center;*/
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+.draft-head{
+    /*font-weight: bold;*/
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.btn{
+    border-radius: 0 !important;
+}
+.create-draft{
+    /*font-size: 19px;*/
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+.all-drafts{
+    margin-top: 30px;
+}
+.list-group{
+    border-radius: 0 !important;
+}
+.draft-problem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.draft-problem .problem-name{
+
+}
+.draft-problem .problem-details{
+
+}

@@ -1,9 +1,10 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top my-navbar" style="background-color: #1f6fb2;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top my-navbar"
+     style="">
     <!-- Container wrapper -->
     <div class="container brand-container">
 
-        <a class="navbar-brand" href="/">{{config('app.name', 'Boson Arena')}}</a>
+        <a class="navbar-brand" href="/" style="font-weight: bolder; letter-spacing: 0.1em;">{{config('app.name', 'Boson Arena')}}</a>
 
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,29 +19,6 @@
             </ul>
             <div class="d-flex align-items-center navbar-inside-1">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-inside-2">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span>
-                                <i class="fas fa-medal"></i> Problems
-                            </span>
-                        </a>
-                    </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#">--}}
-{{--                            <span>--}}
-{{--                               <i class="fas fa-medal"></i> Olympiad--}}
-{{--                            </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#">--}}
-{{--                            <span>--}}
-{{--                              <i class="fas fa-medal"></i>  Quiz--}}
-{{--                            </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-
                     <li class="nav-item dropdown">
                         <a
                             id="navbarDropdown1"
@@ -49,14 +27,26 @@
                             data-mdb-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                            Contests
+                            <img src="{{asset('custom_icons/medal.svg')}}" style="
+                                height:45px;
+                                margin-right:-3px;
+                                margin-top: -5px;
+                            ">Compete
                         </a>
 
 
                         <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="{{route('profile', ['username'=>'asifthen00b'])}}">
-                                <i class="far fa-id-badge"></i> Olympiad
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-folder"></i> Normal Problems
+                            </a>
+
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-folder"></i> Quiz Problems
+                            </a>
+
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-folder"></i> Olympiad
                             </a>
 
                             <a class="dropdown-item" href="#">
@@ -68,14 +58,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span>
-                               <i class="fas fa-medal"></i> Events
+                               <img src="{{asset('custom_icons/puzzle.svg')}}" style="
+                                height:55px;
+                                margin-right:-3px;
+                                margin-top: -10px;
+                                ">Events
                             </span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span>
-                              <i class="fas fa-medal"></i>  Blog
+                              <img src="{{asset('custom_icons/bulb.svg')}}" style="
+                                height:45px;
+                                margin-right:-3px;
+                                margin-top: -3px;
+                                ">Blog
                             </span>
                         </a>
                     </li>
@@ -83,20 +81,20 @@
                     @guest
                         @if(Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link " href="{{ route('login') }}">
-                                        <span>
-                                        <i class="fas fa-sign-in-alt"></i>
-                                        Login
+                                <a class="nav-link login-regi" href="{{ route('login') }}">
+                                        <span style="display: flex;align-items: center;">
+                                        <i style="font-size: 25px;" class="fas fa-sign-in-alt"></i>
+                                        &nbsp;&nbsp;Login
                                         </span>
                                 </a>
                             </li>
                         @endif
                         @if(Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">
-                                        <span>
-                                        <i class="fas fa-user"></i>
-                                        Register
+                                <a class="nav-link login-regi" href="{{ route('register') }}">
+                                        <span style="">
+                                        <i style="font-size: 22px;" class="fas fa-user"></i>
+                                         &nbsp;Register
                                         </span>
                                 </a>
                             </li>
@@ -105,7 +103,7 @@
                         <li class="nav-item dropdown">
                             <a
                                 id="navbarDropdown"
-                                class="nav-link dropdown-toggle"
+                                class="nav-link login-regi dropdown-toggle"
                                 href="#" role="button"
                                 data-mdb-toggle="dropdown"
                                 aria-haspopup="true"
@@ -120,9 +118,16 @@
                                     <i class="far fa-id-badge"></i> Profile
                                 </a>
 
-                                <a class="dropdown-item" href="#">
-                                    <i class="far fa-folder"></i> Draft
-                                </a>
+                                @foreach(Auth::user()->roles as $role)
+
+                                    @if($role->name == 'author' or $role->name=='moderator' or $role->name == 'admin')
+
+                                        <a class="dropdown-item" href="{{route('draft')}}">
+                                            <i class="far fa-folder"></i> Draft
+                                        </a>
+                                    @endif
+
+                                @endforeach
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

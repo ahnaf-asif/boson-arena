@@ -19,9 +19,9 @@ class Author
     {
         if(Auth::user()){
             foreach(Auth::user()->roles as $role){
-                if($role == 'author' or $role == 'admin')return $next($request);
+                if($role->name == 'author' or $role->name == 'admin' or $role->name == 'moderator')return $next($request);
             }
         }
-        return redirect('home')->with('error','You do not have author access');
+        return redirect()->route('home')->with('error','You do not have author access');
     }
 }

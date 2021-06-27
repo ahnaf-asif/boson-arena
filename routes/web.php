@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DraftController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,11 @@ Route::middleware(['auth', 'verified'])->group(function(){
 });
 Route::middleware(['author'])->group(function(){
 
+    Route::prefix('draft')->group(function(){
+        Route::get('/', [DraftController::class, 'index'])->name('draft');
+        Route::get('/new', [DraftController::class, 'showCreateForm'])->name('create.draft');
+        Route::post('/new/create',[DraftController::class, 'create'] )->name('create.draft.backend');
+    });
 
 });
 Route::middleware(['moderator'])->group(function(){

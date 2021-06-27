@@ -19,9 +19,9 @@ class Moderator
     {
         if(Auth::user()){
             foreach(Auth::user()->roles as $role){
-                if($role == 'moderator' or $role=='admin')return $next($request);
+                if($role->name == 'moderator' or $role->name=='admin')return $next($request);
             }
         }
-        return redirect('home')->with('error','You do not have moderator access');
+        return redirect()->route('home')->with('error','You do not have moderator access');
     }
 }
