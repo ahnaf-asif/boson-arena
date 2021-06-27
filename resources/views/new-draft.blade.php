@@ -21,9 +21,17 @@
             </div>
             <div class="mb-4">
                 <label class="form-label" for="evaluation_method" >Evaluation Method</label>
-                <select class="form-select" id="evaluation_method">
+                <select name="evaluation_method" class="form-select" id="evaluation_method">
                     <option value="manual" selected>Manual</option>
                     <option value="automatic">Automatic</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="subjects" >Subject</label>
+                <select name="subject" class="form-select" id="subjects">
+                    @foreach($subjects as $subject)
+                        <option value="{{$subject->id}}">{{$subject->name}}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -35,7 +43,12 @@
                 <label for="description_bn">Description (বাংলা)</label>
                 <textarea name="description_bn" id="description_bn"></textarea>
             </div>
-            <input type="submit" class="btn btn-danger" value="Submit">
+
+{{--            <input type="hidden" name="author" value="{{Auth::user()->id}}">--}}
+
+            <div class="text-center">
+                <input type="submit" class="btn btn-danger btn-lg" value="Submit">
+            </div>
         </form>
     </div>
 @endsection

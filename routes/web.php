@@ -27,6 +27,7 @@ Route::middleware(['author'])->group(function(){
         Route::get('/', [DraftController::class, 'index'])->name('draft');
         Route::get('/new', [DraftController::class, 'showCreateForm'])->name('create.draft');
         Route::post('/new/create',[DraftController::class, 'create'] )->name('create.draft.backend');
+        Route::get('/preview/problem/{id}',[DraftController::class, 'preview'])->name('preview.problem');
     });
 
 });

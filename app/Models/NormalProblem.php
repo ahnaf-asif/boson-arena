@@ -10,6 +10,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class NormalProblem extends Model
 {
     use HasFactory;
+
+    /**
+     * @var mixed
+     */
+//    private $subject_id;
+
     public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class);

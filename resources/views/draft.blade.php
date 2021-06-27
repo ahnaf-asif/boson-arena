@@ -14,15 +14,18 @@
                 <a href="{{route('create.draft')}}" class="btn btn-success create-draft">New Draft</a>
             </div>
         </div>
+{{--        {{$problems}}--}}
         <div class="all-drafts">
 {{--            <div class="no-drafts">--}}
 {{--                <h2 class="text-muted my-5">No Draft added yet</h2>--}}
 {{--            </div>--}}
             <ul class="list-group">
-                <li class="list-group-item draft-problem">
-                    <div class="problem-name">Problem name Here</div>
-                    <div class="problem-details">Details</div>
-                </li>
+                @foreach($problems as $problem)
+                    <li class="list-group-item draft-problem">
+                        <div class="problem-name">{!! $problem->name !!}</div>
+                        <div class="problem-details">Details</div>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
