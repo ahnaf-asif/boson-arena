@@ -75,3 +75,13 @@ $('#description_bn').trumbowyg({
     }
 });
 
+function checkCurrentLang(){
+    if(document.getElementById('select_lang').value === 'en'){
+        document.getElementById('description_bn_show').style.display='none';
+        document.getElementById('description_en_show').style.display='block';
+    }
+    if(document.getElementById('select_lang').value === 'bn'){
+        document.getElementById('description_bn_show').style.display='block';
+        document.getElementById('description_en_show').style.display='none';
+    }
+}

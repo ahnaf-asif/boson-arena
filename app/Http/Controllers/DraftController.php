@@ -43,11 +43,42 @@ class DraftController extends Controller
         return redirect()->route('preview.problem',['id'=>$new_problem->id]);
 
     }
+    public function edit(Request $req){
+        $current_problem = NormalProblem::find($req->id);
+        $subjects = Subject::all();
+        $data = [
+            'current_problem' => $current_problem,
+            'subjects'=> $subjects
+        ];
+        return view('edit-problem', $data);
+    }
+    public function edit_backend(Request  $req){
+        $current_problem = NormalProblem::find($req->id);
+        $current_problem -> subject_id          = $req -> subject;
+        $current_problem -> name                = $req -> problem_name;
+        $current_problem -> description_en      = $req -> description_en;
+        $current_problem -> description_bn      = $req -> description_bn;
+        $current_problem -> judging_method      = $req -> evaluation_method;
+        $current_problem -> user_id             = Auth::user()->id;
+
+        $current_problem->save();
+        return redirect()->route('preview.problem', ['id'=> $current_problem->id])->with('message','Successfully edited the problem');
+    }
+
+    public function delete($id){
+        $current_problem = NormalProblem::find($id);
+        $current_problem->delete();
+        return redirect()->route('draft')->with('message', 'Successfully deleted the problem');
+    }
+
     public function preview($id){
 
         $current_problem = NormalProblem::find($id);
 
         $data = ['current_problem'=>$current_problem];
         return view('preview_problem',$data);
+    }
+    public function search(Request $req){
+        return $req;
     }
 }

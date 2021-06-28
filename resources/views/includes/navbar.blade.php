@@ -1,10 +1,10 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top my-navbar"
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top my-navbar"
      style="">
     <!-- Container wrapper -->
     <div class="container brand-container">
 
-        <a class="navbar-brand" href="/" style="font-weight: bolder; letter-spacing: 0.1em;">{{config('app.name', 'Boson Arena')}}</a>
+        <a class="navbar-brand" href="/" style="font-weight: bolder; letter-spacing: 0.1em; font-size: 25px;">বোসন বিজ্ঞান সংঘ</a>
 
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

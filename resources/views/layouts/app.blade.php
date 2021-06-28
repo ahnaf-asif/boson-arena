@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,6 +31,11 @@
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('trumbowyg/dist/ui/trumbowyg.min.css')}}">
+
+
+{{--        {{$no_mathjax}}--}}
+
+
 
     @yield('custom-css')
 

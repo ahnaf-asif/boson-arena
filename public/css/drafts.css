@@ -2,7 +2,6 @@
     min-height: 80vh;
     background: white;
     padding: 30px;
-
 }
 
 .drafts-header {
@@ -10,7 +9,7 @@
     /*align-items: center;*/
     justify-content: space-between;
     padding-bottom: 20px;
-    border-bottom: 1px solid black;
+    /*border-bottom: 1px solid gray;*/
 }
 .draft-head{
     /*font-weight: bold;*/
@@ -37,10 +36,61 @@
     justify-content: space-between;
     align-items: center;
 }
+.draft-problem:hover{
+    /*background-color: #d4cbc9;*/
+}
 
 .draft-problem .problem-name{
-
+    font-size: 20px;
 }
 .draft-problem .problem-details{
 
+}
+
+.draft-list-link{
+    color: black;
+}
+.draft-list-link:hover, .draft-list-link:active{
+    text-decoration: none;
+}
+.show-unique-identifier{
+    width: 100px;
+    overflow-x: scroll;
+}
+.copied{
+    background: green !important;
+}
+.btn-copy{
+    width: 80px;
+}
+.problem-details{
+    display: flex;
+    justify-content: space-between;
+}
+.select{
+    width: 100px;
+    padding: 5px 10px;
+}
+.hidden{
+    display: none;
+}
+
+.description{
+    line-height: 35px;
+}
+.show-unique-identifier-single{
+    width: 100%;
+}
+@media (max-width: 900px){
+    .drafts{
+        padding: 5px;
+        margin-top: 30px;
+    }
+    .draft-problem{
+        padding: 1.5rem .5rem !important;
+    }
+    .right-col-problem-desc{
+        margin-top: 40px;
+        /*border-top: 2px solid green;*/
+    }
 }

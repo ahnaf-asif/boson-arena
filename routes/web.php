@@ -27,7 +27,18 @@ Route::middleware(['author'])->group(function(){
         Route::get('/', [DraftController::class, 'index'])->name('draft');
         Route::get('/new', [DraftController::class, 'showCreateForm'])->name('create.draft');
         Route::post('/new/create',[DraftController::class, 'create'] )->name('create.draft.backend');
-        Route::get('/preview/problem/{id}',[DraftController::class, 'preview'])->name('preview.problem');
+        Route::get('/preview/problem/{id}',[DraftController::class, 'preview'])
+            ->name('preview.problem')
+            ->middleware('only_my_problem');
+        Route::get('/problem/edit/{id}', [DraftController::class, 'edit'])
+            ->name('edit.problem')
+            ->middleware('only_my_problem');
+        Route::post('/problem/edit', [DraftController::class,'edit_backend'])
+            ->name('edit.problem.backend');
+        Route::get('/problem/delete/{id}',[DraftController::class, 'delete'])
+            ->name('delete.problem')
+            ->middleware('only_my_problem');
+        Route::post('/search/problem',[DraftController::class, 'search'])->name('search.problem');
     });
 
 });

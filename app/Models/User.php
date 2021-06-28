@@ -60,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function normalProblems(): HasMany
     {
-        return $this->hasMany(NormalProblem::class);
+        return $this->hasMany(NormalProblem::class)->orderBy('id', 'desc');
     }
 
 }
