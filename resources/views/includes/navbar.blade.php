@@ -4,7 +4,7 @@
     <!-- Container wrapper -->
     <div class="container brand-container">
 
-        <a class="navbar-brand" href="/" style="font-weight: bolder; letter-spacing: 0.1em; font-size: 25px;">বোসন বিজ্ঞান সংঘ</a>
+        <a class="navbar-brand" href="/" style="font-weight: bolder; letter-spacing: 0.1em; font-size: 1.3em;">বোসন বিজ্ঞান সংঘ</a>
 
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,14 +37,9 @@
 
                         <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Normal Problems
+                            <a class="dropdown-item" href="{{route('problems')}}">
+                                <i class="far fa-folder"></i> Problems
                             </a>
-
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Quiz Problems
-                            </a>
-
                             <a class="dropdown-item" href="#">
                                 <i class="far fa-folder"></i> Olympiad
                             </a>

@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\NormalProblem;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class DraftController extends Controller
 {
+
     public function index(){
 
-        $problems = Auth::user()->normalProblems;
-        $data = ['problems'=>$problems];
+        $problems = Auth::user()->normalProblems()->paginate(8);
+        $data = [
+            'problems'=>$problems,
+            'searched'=>false
+        ];
         return view('draft', $data);
     }
     public function showCreateForm(){
@@ -40,7 +45,8 @@ class DraftController extends Controller
 
         $new_problem->save();
 
-        return redirect()->route('preview.problem',['id'=>$new_problem->id]);
+        return redirect()->route('preview.problem',['id'=>$new_problem->id])
+            ->with('success','Successfully created a problem');
 
     }
     public function edit(Request $req){
@@ -62,13 +68,13 @@ class DraftController extends Controller
         $current_problem -> user_id             = Auth::user()->id;
 
         $current_problem->save();
-        return redirect()->route('preview.problem', ['id'=> $current_problem->id])->with('message','Successfully edited the problem');
+        return redirect()->route('preview.problem', ['id'=> $current_problem->id])->with('success','Successfully updated the problem');
     }
 
     public function delete($id){
         $current_problem = NormalProblem::find($id);
         $current_problem->delete();
-        return redirect()->route('draft')->with('message', 'Successfully deleted the problem');
+        return redirect()->route('draft')->with('success', 'Successfully deleted the problem');
     }
 
     public function preview($id){
@@ -78,7 +84,27 @@ class DraftController extends Controller
         $data = ['current_problem'=>$current_problem];
         return view('preview_problem',$data);
     }
+
     public function search(Request $req){
-        return $req;
+        $all_problems = Auth::user()->normalProblems()->where('name','like','%'.$req->search.'%')->paginate(8);
+        $data = [
+            'problems'=>$all_problems,
+            'searched'=>true
+        ];
+        return view('draft', $data);
     }
+    public function addRemoveArchive($problem, $type){
+        $current_problem = NormalProblem::find($problem);
+        $message = '';
+        if($type == 0){
+            $current_problem->archive=false;
+            $message = 'Successfully removed the problem from archive';
+        }else{
+            $current_problem->archive=true;
+            $message = 'Successfully added the problem in the archive';
+        }
+        $current_problem->save();
+        return redirect()->route('preview.problem', ['id'=> $current_problem->id])->with('success',$message);
+    }
+
 }

@@ -7,17 +7,17 @@
 
 
 @section('content')
-    <div class="container drafts shadow-2">
+    <div class="container drafts bg-super-light py-4 shadow-2">
 
         <div class="form-header-h2 text-center mb-6">
-            <h2>Create A New Problem</h2>
+            <h2 class="font-weight-bold">Create A New Problem</h2>
         </div>
 
         <form action="{{route('create.draft.backend')}}" method="POST">
             @csrf
             <div class="form-outline mb-4">
-                <input type="text" id="problem_name" name="problem_name" class="form-control" />
-                <label class="form-label" for="problem_name">Problem Name</label>
+                <input type="text" id="problem_name" name="problem_name" class="form-control" required/>
+                <label class="form-label" for="problem_name" >Problem Name</label>
             </div>
             <div class="mb-4">
                 <label class="form-label" for="evaluation_method" >Evaluation Method</label>
@@ -51,6 +51,7 @@
             </div>
         </form>
     </div>
+    @include('includes.toast-testing')
 @endsection
 
 

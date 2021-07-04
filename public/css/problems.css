@@ -1,0 +1,26 @@
+.solved{
+    background: #d6ffd4;
+}
+.solved:hover{
+    background: #7ab577 !important;
+}
+.problems{
+    min-height: 80vh;
+}
+
+.problems-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list-group{
+    border-radius: 0 !important;
+}
+.problems-link:hover, .problems-link:active{
+    text-decoration: none;
+}
+.list-group-item:hover{
+    background: #f0f5ff;
+}

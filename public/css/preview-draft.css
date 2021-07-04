@@ -1,0 +1,29 @@
+.btn-my-draft{
+    border-radius: 0 !important;
+}
+.description{
+    line-height: 2em;
+    font-size: 1.05em;
+
+}
+.description-inside{
+    border: 1px solid #b8bbc2;
+}
+.preview-problem-btn{
+    margin-top: 10px;
+    width:100%;
+    font-size: 1em;
+    border-radius: 0 !important;
+}
+.copied{
+    background: green !important;
+}
+/*.centered-div{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+@media(max-width: 768px){
+    .details{
+        margin-top: 20px;
+    }
+}

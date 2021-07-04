@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <div class="container drafts shadow-2">
+    <div class="container drafts shadow-2 bg-super-light py-4">
 
         <div class="form-header-h2 text-center mb-6">
             <h2>Edit Problem</h2>
@@ -64,10 +64,11 @@
             {{--            <input type="hidden" name="author" value="{{Auth::user()->id}}">--}}
 
             <div class="text-center">
-                <input type="submit" class="btn btn-danger btn-lg" value="Submit">
+                <input type="submit" class="btn btn-danger btn-lg" value="Update">
             </div>
         </form>
     </div>
+    @include('includes.toast-testing')
 @endsection
 
 

@@ -11,10 +11,16 @@ class NormalProblem extends Model
 {
     use HasFactory;
 
-    /**
-     * @var mixed
-     */
-//    private $subject_id;
+    protected $fillable = [
+        'subject_id',
+        'name',
+        'archive',
+        'description_en',
+        'description_bn',
+        'judging_method',
+        'identifier',
+        'user_id'
+    ];
 
     public function subject(): BelongsTo
     {
@@ -26,5 +32,8 @@ class NormalProblem extends Model
     }
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);
+    }
+    public function normalSubmissions(): HasMany{
+        return $this->hasMany(NormalSubmission::class);
     }
 }

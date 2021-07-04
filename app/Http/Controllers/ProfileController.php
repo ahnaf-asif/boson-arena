@@ -29,7 +29,7 @@ class ProfileController extends Controller
 
         $currentUser->save();
 
-        return redirect()->route('profile', ['username'=> $username])->with('message', 'Successfully updated your profile');
+        return redirect()->route('profile', ['username'=> $username])->with('success', 'Successfully updated your profile');
 
     }
     public function updateProfilePicture(Request $request){
@@ -39,6 +39,6 @@ class ProfileController extends Controller
 
         $current_user->save();
 
-        return redirect()->route('profile',['username'=> $current_user->username])->with('message', 'Successfully updated your profile picture');
+        return redirect()->route('profile',['username'=> $current_user->username])->with('success', 'Successfully updated your profile picture');
     }
 }

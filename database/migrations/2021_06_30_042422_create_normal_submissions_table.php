@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSolutionsTable extends Migration
+class CreateNormalSubmissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateSolutionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('solutions', function (Blueprint $table) {
+        Schema::create('normal_submissions', function (Blueprint $table) {
             $table->id();
-            $table->string('answer')->nullable();
-            $table->string('margin')->default('0')->nullable();
+            $table->string('solution')->nullable();
             $table->bigInteger('normal_problem_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->string('verdict')->default('pending');
+            // verdict can be pending, wrong, correct
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateSolutionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solutions');
+        Schema::dropIfExists('normal_submissions');
     }
 }

@@ -1,0 +1,25 @@
+.toast {
+    /*height: 100px !important;*/
+    width: 350px !important;
+    height: 80px;
+    opacity: 1 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+#toast-container > div {
+    opacity: 1 !important;
+}
+
+.toast-message{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+}
+
+.custom-position-class{
+    position: static;
+    top: 60px;
+    right: 0;
+}

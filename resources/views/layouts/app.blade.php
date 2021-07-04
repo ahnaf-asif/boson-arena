@@ -27,15 +27,16 @@
 
     <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
 
+    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
 
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('trumbowyg/dist/ui/trumbowyg.min.css')}}">
 
-
+{{--    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">--}}
 {{--        {{$no_mathjax}}--}}
 
-
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 
     @yield('custom-css')
 
@@ -43,11 +44,23 @@
 
 </head>
 <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box !important;
+        /*overflow-x: hidden !important;*/
+    }
     body{
-        font-family: 'Roboto', sans-serif;
-        background-image: url('{{asset('bg_img/bg-1.jpg')}}');
+        /*font-family: 'Roboto', sans-serif;*/
+        font-family: Soleil,Arial,sans-serif;
+{{--        background-image: url('{{asset('bg_img/bg-3.jpg')}}');--}}
         box-sizing: border-box;;
     }
+    *{
+        /*border-radius: 0 !important;*/
+    }
+
+
 </style>
 <body>
     <div id="app">
@@ -62,8 +75,11 @@
 
     <script src="{{ asset('js/mdb.min.js') }} "></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{asset('js/toastr.min.js')}}"></script>
     <script src="{{asset('trumbowyg/dist/trumbowyg.min.js')}}"></script>
     <script src="//rawcdn.githack.com/RickStrahl/jquery-resizable/master/dist/jquery-resizable.min.js"></script>
+    <script src="{{asset('js/all.js')}}"></script>
     @yield('custom-js')
+    @yield('script-after-all-things')
 </body>
 </html>

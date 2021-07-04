@@ -1,0 +1,54 @@
+.preview-header, .preview-problem{
+    background: white !important;
+}
+
+.btn-my-draft{
+    border-radius: 0 !important;
+}
+.description{
+    line-height: 2em;
+    font-size: 1.05em;
+}
+.description-inside{
+    /*border: 1px solid #b8bbc2;*/
+}
+.preview-problem-btn{
+    margin-top: 10px;
+    width:100%;
+    font-size: 1em;
+    border-radius: 0 !important;
+}
+.copied{
+    background: green !important;
+}
+.card{
+    border-radius: 0 !important;
+}
+/*.centered-div{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+.statistics table{
+    /*font-size: 18px;*/
+    /*border: 1px solid #b8bbc2;*/
+    /*font-weight: bold;*/
+}
+.preview-problem{
+    /*border: 1px solid #39C0ED;*/
+}
+
+.list-group .list-group-item{
+    border-radius: 0 !important;
+}
+.description-inside{
+    font-size: 20px;
+    line-height: 2em;
+}
+.select_lang{
+    padding: 5px 15px;
+}
+@media(max-width: 768px){
+    .details{
+        margin-top: 20px;
+    }
+}

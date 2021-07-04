@@ -1,46 +1,42 @@
 @extends('layouts.app')
 
 @section('custom-css')
-    <link rel="stylesheet" href="{{asset('css/drafts.css')}}">
+    <link rel="stylesheet" href="{{asset('css/preview-draft.css')}}">
 @endsection
 
+
 @section('content')
-    <div class="container drafts ">
-        {{--        <hr>--}}
-        <div class="drafts-header container">
-            <div class="name">
-                <h3 style="font-weight: bolder;">{!! $current_problem->name !!}</h3>
-            </div>
-            <div class="new">
-                <a href="{{route('draft')}}" class="btn btn-outline-black create-draft">My Draft</a>
+    @include('includes.delete-problem-modal')
+
+    <div class="container mt-4 py-3 preview-problem">
+        <div class="preview-header mb-5">
+            <div class="heading-text text-center">
+                <h1 class="font-weight-bolder mb-2">{{$current_problem->name}}</h1>
+                <small>
+                    Subject: <span class="text-secondary font-weight-bold">{{$current_problem->subject->name}}</span>
+                    ( <span class=" font-weight-bold
+                        @if($current_problem->judging_method == 'automatic')
+                            text-success
+                        @else
+                            text-danger
+                        @endif
+                    ">{{$current_problem->judging_method}}</span> )
+                </small>
             </div>
         </div>
-        <div class="container-fluid draft-body">
+        <div class="preview-body">
             <div class="row">
                 <div class="col-md-8">
-                    <ul class="list-group pt-3">
-                        <li class="list-group-item problem-details">
-                            <div class="left">
-                                Subject : <b>{{$current_problem->subject->name}}</b>
-                            </div>
-                            <div class="right">
-                                Evaluation Method: <b class="
-                                    @if($current_problem->judging_method == 'manual')
-                                        text-danger
-                                    @else
-                                        text-success
-                                    @endif
-                                ">{{$current_problem->judging_method}}</b>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="text-right">
-                        <select id="select_lang" onchange="return checkCurrentLang();" class="select my-3" aria-label="Default select example">
-                            <option value="en">English</option>
-                            <option value="bn">বাংলা</option>
-                        </select>
+                    <div class="description">
+                        <div class="text-right">
+                            <select id="select_lang" onchange="return checkCurrentLang();" class="" aria-label="Default select example">
+                                <option value="en">English</option>
+                                <option value="bn">বাংলা</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="description shadow-2 py-4 px-2" style="min-height: 300px;">
+                    <br>
+                    <div class="description description-inside px-2 py-2 pb-4 p-md-4" style="min-height: 50vh;">
                         <div id="description_en_show" class="">
                             {!! $current_problem->description_en !!}
                         </div>
@@ -50,75 +46,52 @@
                     </div>
 
 
+
                 </div>
-                <div class="right-col-problem-desc col-md-4 pt-3">
-                    <div class="input-group mb-2">
-                        <div class="form-outline" style="width: 75%;">
-                            <input value="{{$current_problem->identifier}}" class="form-control" id="unique_identifier{{$current_problem->id}}" style="font-size: 14px !important;" />
-                        </div>
-                        <div class="hudai" style="width: 25%; height: 100%;">
-                            <button style="width: 100%;"
-                                onclick="
-                                    const elem = document.createElement('textarea');
-                                    elem.value = '{{$current_problem->identifier}}';
-                                    document.body.appendChild(elem);
-                                    elem.select();
-                                    document.execCommand('copy');
-                                    document.body.removeChild(elem);
+                <div class="col-md-4">
+                    <div class="details">
+                        <a href="{{route('draft')}}" class="btn btn-black preview-problem-btn mb-2 rounded-0" type="button">Back To My Draft</a>
+                        @include('includes.problem-identifier')
+                        @if($current_problem->judging_method == 'automatic')
+                            <div class="submit py-3">
+                                <h5 class="font-weight-bold">Test your solution</h5>
+                                <form action="{{route('test.submit')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="problem_id" value="{{$current_problem->id}}">
+                                    <div class="input-group" style="width: 100%;">
+                                        <div class="form-outline" style="width: 60%;">
+                                            <input type="search" name="submission" id="submission" class="form-control rounded-0" />
+                                        </div>
+                                        <button style="width: 40%;" type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
 
-                                    this.classList.add('copied');
-                                    this.innerText = 'copied';
-
-                                    setTimeout(()=>{
-                                    this.innerText = 'copy';
-                                    this.classList.remove('copied');
-                                    }, 5000);
-
-                                    "
-
-                                class="btn btn-info btn-copy">
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <a href="{{route('edit.problem', ['id'=>$current_problem->id])}}" class="btn btn-secondary" type="button">Edit Problem</a>
+                                </form>
+                            </div>
+                            @if($current_problem->archive == false)
+                                <a href="{{route('add.remove.archive', ['problem'=>$current_problem->id, 'type'=>1])}}" class="btn btn-success preview-problem-btn" type="button">Add to archive</a>
+                            @else
+                                <a href="{{route('add.remove.archive', ['problem'=>$current_problem->id, 'type'=>0])}}" class="btn btn-warning preview-problem-btn" type="button">Remove from archive</a>
+                            @endif
+                        @endif
+                        <a href="{{route('edit.problem', ['id'=>$current_problem->id])}}" class="btn btn-secondary preview-problem-btn" type="button">Edit Problem</a>
                         <button
-                            class="btn btn-danger"
+                            class="btn btn-danger preview-problem-btn"
                             type="button"
                             data-mdb-toggle="modal"
                             data-mdb-target="#deleteProblem"
                         >Delete Problem</button>
-
-                        @include('includes.delete-problem-modal')
-
                         @if($current_problem->judging_method == 'automatic')
-                            <a href="#" class="btn btn-success" type="button">Solutions</a>
+                            @include('includes.draft-problem-solutions')
                         @endif
                     </div>
-                    @if($current_problem->judging_method == 'automatic')
-                        <div class="submit mt-4">
-                            <form action="#" method="POST">
-                                @csrf
-                                <div class="input-group" style="width: 100%;">
-                                    <div class="form-outline" style="width: 60%;">
-                                        <input type="search" id="solution" class="form-control" />
-                                        <label class="form-label" for="solution">Test Your Solution</label>
-                                    </div>
-                                    <button style="width: 40%;" type="button" class="btn btn-primary">
-                                        Submit
-                                    </button>
-                                </div>
-
-                            </form>
-                        </div>
-                    @endif
-
                 </div>
             </div>
         </div>
-
     </div>
+
+    @include('includes.toast-testing')
 @endsection
 
 

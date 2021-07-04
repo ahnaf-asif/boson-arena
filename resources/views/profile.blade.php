@@ -42,4 +42,5 @@
             </div>
         </div>
     @endif
+    @include('includes.toast-testing')
 @endsection

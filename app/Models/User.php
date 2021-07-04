@@ -62,5 +62,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(NormalProblem::class)->orderBy('id', 'desc');
     }
+    public function normalSubmissions(): HasMany{
+        return $this->hasMany(NormalSubmission::class);
+    }
 
 }

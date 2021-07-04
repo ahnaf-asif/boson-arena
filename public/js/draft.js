@@ -85,3 +85,5 @@ function checkCurrentLang(){
         document.getElementById('description_en_show').style.display='none';
     }
 }
+
+
