@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Edit Profile
+@endsection
+
 @section('custom-js')
     <script src="{{ asset('js/profile.js') }} "></script>
 @endsection

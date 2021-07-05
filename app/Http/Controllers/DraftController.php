@@ -14,7 +14,17 @@ class DraftController extends Controller
 
     public function index(){
 
-        $problems = Auth::user()->normalProblems()->paginate(8);
+        $isAdmin = false;
+        foreach(Auth::user()->roles as $role){
+            if($role->name == 'admin')$isAdmin = true;
+        }
+//        dd(Auth::user()->roles());
+        if($isAdmin){
+            $problems = NormalProblem::orderBy('id', 'desc')->paginate(8);
+        }else{
+            $problems = Auth::user()->normalProblems()->paginate(8);
+        }
+
         $data = [
             'problems'=>$problems,
             'searched'=>false

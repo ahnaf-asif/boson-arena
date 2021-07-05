@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title')
+    Edit Problem
+@endsection
 
 @section('custom-css')
     <link rel="stylesheet" href="{{asset('css/drafts.css')}}">

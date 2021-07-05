@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+{{$current_problem->name}}
+@endsection
+
 @section('custom-css')
     <link rel="stylesheet" href="{{asset('css/view-problem.css')}}">
 @endsection

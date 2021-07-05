@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+
+@endsection
+
 @section('custom-css')
 
 @endsection

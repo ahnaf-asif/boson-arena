@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    New Draft
+@endsection
+
 @section('custom-css')
     <link rel="stylesheet" href="{{asset('css/drafts.css')}}">
 

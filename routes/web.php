@@ -28,6 +28,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
         Route::post('/submit/problem',[ProblemController::class, 'submit'])->name('submit.problem');
         Route::get('/filter/',[ProblemController::class, 'filterBySubject'])->name('filter.by.subject');
         Route::get('/search/', [ProblemController::class, 'search'])->name('search.problem.problems');
+        Route::get('/unsolved', [ProblemController::class,'showUnsolved'])->name('unsolved.problems');
     });
 
 });

@@ -1,8 +1,11 @@
+.btn-filter{
+    width: 180px;
+}
 .solved{
-    background: #d6ffd4;
+    border-color: #0aff3f;
 }
 .solved:hover{
-    background: #7ab577 !important;
+    background: #54ff79 !important;
 }
 .problems{
     min-height: 80vh;

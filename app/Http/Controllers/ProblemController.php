@@ -14,7 +14,7 @@ class ProblemController extends Controller
     public function index(){
         $all_problems = NormalProblem::where('archive', true)
                                         ->orderBy('id', 'DESC')
-                                        ->paginate(8);
+                                        ->paginate(8)->withQueryString();
         $subjects = Subject::all();
         $solved = [];
         foreach($all_problems as $problem){
@@ -98,10 +98,6 @@ class ProblemController extends Controller
         $all_problems = NormalProblem::whereIn('subject_id',$request->filtered_subjects)
                                         ->orderBy('id', 'DESC')
                                         ->paginate(8)->withQueryString();
-
-//        return count($all_problems);
-
-
         $subjects = Subject::all();
         $solved = [];
         foreach($all_problems as $problem){
@@ -123,7 +119,7 @@ class ProblemController extends Controller
 
     }
     public function search(Request $req){
-        $all_problems = NormalProblem::where('name','like','%'.$req->search.'%')->paginate(8);
+        $all_problems = NormalProblem::where('name','like','%'.$req->search.'%')->paginate(8)->withQueryString();
 
 
         $subjects = Subject::all();
@@ -141,6 +137,34 @@ class ProblemController extends Controller
             'solved' => $solved,
             'already_filtered' => [],
             'searched' => true
+        ];
+        return view('problems', $data);
+    }
+    public function showUnsolved(){
+        $all_problems = NormalProblem::whereDoesntHave('normalSubmissions', function($q){
+            $q->where('user_id',Auth::user()->id)
+              ->where('verdict','correct');
+        })
+        ->where('archive', true)
+        ->orderBy('id', 'DESC')
+        ->paginate(8)->withQueryString();
+
+
+        $subjects = Subject::all();
+        $solved = [];
+        foreach($all_problems as $problem){
+            $accepted_submissions = NormalSubmission::all()
+                ->where('normal_problem_id',$problem->id)
+                ->where('verdict','correct')
+                ->where('user_id',Auth::user()->id);
+            array_push($solved, count(is_countable($accepted_submissions)?$accepted_submissions:[]));
+        }
+        $data = [
+            'all_problems' => $all_problems,
+            'subjects' => $subjects,
+            'solved' => $solved,
+            'already_filtered' => [],
+            'searched' => false,
         ];
         return view('problems', $data);
     }
