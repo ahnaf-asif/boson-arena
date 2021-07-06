@@ -16,6 +16,7 @@
         <div class="preview-header mb-5">
             <div class="heading-text text-center">
                 <h1 class="font-weight-bolder mb-2">{{$current_problem->name}}</h1>
+{{--                <h6 class="font-weight-bold text-primary">{{$current_problem->user->name}}</h6>--}}
                 <small>
                     Subject: <span class="text-secondary font-weight-bold">{{$current_problem->subject->name}}</span>
                     ( <span class=" font-weight-bold
@@ -86,6 +87,21 @@
                             data-mdb-toggle="modal"
                             data-mdb-target="#deleteProblem"
                         >Delete Problem</button>
+
+                        <div class="py-2 my-3">
+                            <form action="{{route('update.score')}}" method="POST">
+                                @csrf
+                                <input name="problem_id" type="hidden" value="{{$current_problem->id}}" >
+                                <div class="form-outline">
+                                    <input value="{{$current_problem->score}}" type="number" id="score" name="score" class="form-control" required />
+                                    <label class="form-label" for="score">Score</label>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <input type="submit" class="btn btn-black" value="Update Score">
+                                </div>
+                            </form>
+                        </div>
+
                         @if($current_problem->judging_method == 'automatic')
                             @include('includes.draft-problem-solutions')
                         @endif

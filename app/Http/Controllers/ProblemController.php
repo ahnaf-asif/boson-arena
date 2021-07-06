@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NormalProblem;
 use App\Models\NormalSubmission;
 use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,9 @@ class ProblemController extends Controller
     public function index(){
         $all_problems = NormalProblem::where('archive', true)
                                         ->orderBy('id', 'DESC')
-                                        ->paginate(8)->withQueryString();
+                                        ->paginate(10)->withQueryString();
+        $ranklist_users = User::select(['name','score'])->orderBy('score','DESC')->take(10)->get();
+
         $subjects = Subject::all();
         $solved = [];
         foreach($all_problems as $problem){
@@ -29,7 +32,8 @@ class ProblemController extends Controller
             'subjects' => $subjects,
             'solved' => $solved,
             'already_filtered' => [],
-            'searched' => false
+            'searched' => false,
+            'ranklist_users' => $ranklist_users
         ];
         return view('problems', $data);
     }
@@ -69,6 +73,17 @@ class ProblemController extends Controller
                 $current_submission->verdict = 'correct';
                 $current_submission->save();
 
+                $accepted_submissions = count(NormalSubmission::all()
+                    ->where('normal_problem_id',$current_problem->id)
+                    ->where('verdict','correct')
+                    ->where('user_id',Auth::user()->id));
+
+                if($accepted_submissions == 1){
+                    $current_user = User::find(Auth::user()->id);
+                    $current_user->score += $current_problem->score;
+                    $current_user->save();
+                }
+
                 return redirect()->route('show.problem',['id'=>$req->problem_id])
                     ->with('success', 'Your solution is correct');
             }
@@ -79,6 +94,17 @@ class ProblemController extends Controller
 
                     $current_submission->verdict = 'correct';
                     $current_submission->save();
+
+                    $accepted_submissions = count(NormalSubmission::all()
+                        ->where('normal_problem_id',$current_problem->id)
+                        ->where('verdict','correct')
+                        ->where('user_id',Auth::user()->id));
+
+                    if($accepted_submissions == 1){
+                        $current_user = User::find(Auth::user()->id);
+                        $current_user->score += $current_problem->score;
+                        $current_user->save();
+                    }
 
                     return redirect()->route('show.problem',['id'=>$req->problem_id])
                         ->with('success', 'Your solution is correct');
@@ -91,13 +117,28 @@ class ProblemController extends Controller
             ->with('error', 'Your solution is incorrect');
     }
     public function filterBySubject(Request $request){
-
-        if(isset($request->filtered_subjects) == 0){
+        $ranklist_users = User::select(['name','score'])->orderBy('score','DESC')->take(10)->get();
+        if(isset($request->filtered_subjects) == 0 and isset($request->only_unsolved) == 0){
             return redirect(route('problems'));
         }
-        $all_problems = NormalProblem::whereIn('subject_id',$request->filtered_subjects)
+        if(isset($request->filtered_subjects) == 0 and isset($request->only_unsolved)){
+            return redirect(route('unsolved.problems'));
+        }
+        if(isset($request->only_unsolved)){
+            $all_problems = NormalProblem::whereDoesntHave('normalSubmissions', function($q){
+                $q->where('user_id',Auth::user()->id)
+                    ->where('verdict','correct');
+            })
+                ->whereIn('subject_id',$request->filtered_subjects)
+                ->where('archive', true)
+                ->orderBy('id', 'DESC')
+                ->paginate(8)->withQueryString();
+        }
+        else $all_problems = NormalProblem::whereIn('subject_id',$request->filtered_subjects)
+                                        ->where('archive', true)
                                         ->orderBy('id', 'DESC')
-                                        ->paginate(8)->withQueryString();
+                                        ->paginate(10)->withQueryString();
+
         $subjects = Subject::all();
         $solved = [];
         foreach($all_problems as $problem){
@@ -112,15 +153,16 @@ class ProblemController extends Controller
             'subjects' => $subjects,
             'solved' => $solved,
             'already_filtered' => $request->filtered_subjects,
-            'searched' => false
+            'searched' => false,
+            'ranklist_users' => $ranklist_users
         ];
 
         return view('problems', $data);
 
     }
     public function search(Request $req){
-        $all_problems = NormalProblem::where('name','like','%'.$req->search.'%')->paginate(8)->withQueryString();
-
+        $all_problems = NormalProblem::where('name','like','%'.$req->search.'%')->paginate(10)->withQueryString();
+        $ranklist_users = User::select(['name','score'])->orderBy('score','DESC')->take(10)->get();
 
         $subjects = Subject::all();
         $solved = [];
@@ -136,7 +178,8 @@ class ProblemController extends Controller
             'subjects' => $subjects,
             'solved' => $solved,
             'already_filtered' => [],
-            'searched' => true
+            'searched' => true,
+            'ranklist_users' => $ranklist_users
         ];
         return view('problems', $data);
     }
@@ -147,9 +190,9 @@ class ProblemController extends Controller
         })
         ->where('archive', true)
         ->orderBy('id', 'DESC')
-        ->paginate(8)->withQueryString();
+        ->paginate(10)->withQueryString();
 
-
+        $ranklist_users = User::select(['name','score'])->orderBy('score','DESC')->take(10)->get();
         $subjects = Subject::all();
         $solved = [];
         foreach($all_problems as $problem){
@@ -165,6 +208,8 @@ class ProblemController extends Controller
             'solved' => $solved,
             'already_filtered' => [],
             'searched' => false,
+            'showUnsolved' => true,
+            'ranklist_users' => $ranklist_users
         ];
         return view('problems', $data);
     }

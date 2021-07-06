@@ -2,10 +2,10 @@
     width: 180px;
 }
 .solved{
-    border-color: #0aff3f;
+    border: 0.12em solid #00B74A;
 }
 .solved:hover{
-    background: #54ff79 !important;
+    background: #c2ffd8 !important;
 }
 .problems{
     min-height: 80vh;

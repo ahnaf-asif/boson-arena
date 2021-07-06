@@ -19,50 +19,59 @@
             </ul>
             <div class="d-flex align-items-center navbar-inside-1">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-inside-2">
-                    <li class="nav-item dropdown">
-                        <a
-                            id="navbarDropdown1"
-                            class="nav-link dropdown-toggle"
-                            href="#" role="button"
-                            data-mdb-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false" v-pre>
-                            <img src="{{asset('custom_icons/medal.svg')}}" style="
-                                height:45px;
-                                margin-right:-3px;
-                                margin-top: -5px;
-                            ">Compete
-                        </a>
+{{--                    <li class="nav-item dropdown">--}}
+{{--                        <a--}}
+{{--                            id="navbarDropdown1"--}}
+{{--                            class="nav-link dropdown-toggle"--}}
+{{--                            href="#" role="button"--}}
+{{--                            data-mdb-toggle="dropdown"--}}
+{{--                            aria-haspopup="true"--}}
+{{--                            aria-expanded="false" v-pre>--}}
+{{--                            <img src="{{asset('custom_icons/medal.svg')}}" style="--}}
+{{--                                height:45px;--}}
+{{--                                margin-right:-3px;--}}
+{{--                                margin-top: -5px;--}}
+{{--                            ">Compete--}}
+{{--                        </a>--}}
 
 
-                        <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
+{{--                        <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">--}}
 
-                            <a class="dropdown-item" href="{{route('problems')}}">
-                                <i class="far fa-folder"></i> Problems
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Olympiad
-                            </a>
+{{--                            <a class="dropdown-item" href="{{route('problems')}}">--}}
+{{--                                <i class="far fa-folder"></i> Problems--}}
+{{--                            </a>--}}
+{{--                            <a class="dropdown-item" href="#">--}}
+{{--                                <i class="far fa-folder"></i> Olympiad--}}
+{{--                            </a>--}}
 
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Quiz
-                            </a>
-                        </div>
-                    </li>
-
+{{--                            <a class="dropdown-item" href="#">--}}
+{{--                                <i class="far fa-folder"></i> Quiz--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('problems')}}">
                             <span>
-                               <img src="{{asset('custom_icons/puzzle.svg')}}" style="
-                                height:55px;
-                                margin-right:-3px;
-                                margin-top: -10px;
-                                ">Events
+                               <img src="{{asset('custom_icons/medal.svg')}}" style="
+                                   height:45px;
+                                   margin-right:-3px;
+                                   margin-top: -5px;">Problems
                             </span>
                         </a>
                     </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="#">--}}
+{{--                            <span>--}}
+{{--                               <img src="{{asset('custom_icons/puzzle.svg')}}" style="--}}
+{{--                                height:55px;--}}
+{{--                                margin-right:-3px;--}}
+{{--                                margin-top: -10px;--}}
+{{--                                ">Events--}}
+{{--                            </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('blog')}}">
                             <span>
                               <img src="{{asset('custom_icons/bulb.svg')}}" style="
                                 height:45px;

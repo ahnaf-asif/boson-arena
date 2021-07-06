@@ -14,16 +14,7 @@ class DraftController extends Controller
 
     public function index(){
 
-        $isAdmin = false;
-        foreach(Auth::user()->roles as $role){
-            if($role->name == 'admin')$isAdmin = true;
-        }
-//        dd(Auth::user()->roles());
-        if($isAdmin){
-            $problems = NormalProblem::orderBy('id', 'desc')->paginate(8);
-        }else{
-            $problems = Auth::user()->normalProblems()->paginate(8);
-        }
+        $problems = Auth::user()->normalProblems()->paginate(8);
 
         $data = [
             'problems'=>$problems,
@@ -116,5 +107,12 @@ class DraftController extends Controller
         $current_problem->save();
         return redirect()->route('preview.problem', ['id'=> $current_problem->id])->with('success',$message);
     }
+    public function updateScore(Request $req){
+        $current_problem = NormalProblem::find($req->problem_id);
+        $current_problem->score = $req->score;
+        $current_problem->save();
+        $message = "Successfully updated the score";
 
+        return redirect()->route('preview.problem', ['id'=> $current_problem->id])->with('success',$message);
+    }
 }

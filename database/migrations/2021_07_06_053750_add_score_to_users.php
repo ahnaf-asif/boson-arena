@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class AddInformaticsSubject extends Migration
+class AddScoreToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,9 @@ class AddInformaticsSubject extends Migration
      */
     public function up()
     {
-        DB::table('subjects')->insert(array('name' => 'Informatics'));
+        Schema::table('users', function (Blueprint $table) {
+            $table->bigInteger('score')->default(0)->nullable();
+        });
     }
 
     /**
@@ -24,6 +25,8 @@ class AddInformaticsSubject extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('score');
+        });
     }
 }

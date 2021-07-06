@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DraftController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProblemController;
@@ -12,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify'=>true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('blog')->group(function(){
+    Route::get('/', [BlogController::class, 'index'])->name('blog');
+});
+
+
 
 Route::middleware(['auth', 'verified'])->group(function(){
 
@@ -53,7 +61,7 @@ Route::middleware(['author'])->group(function(){
         Route::get('/search/problem',[DraftController::class, 'search'])->name('search.problem');
         Route::get('/add-remove-archive/{problem}/{type}', [DraftController::class, 'addRemoveArchive'])
             ->name('add.remove.archive');
-
+        Route::post('/score/update', [DraftController::class, 'updateScore'])->name('update.score');
         Route::post('/solution/add', [SolutionController::class, 'add'])
             ->name('add.solution');
         Route::post('/solution/delete', [SolutionController::class, 'delete'])
