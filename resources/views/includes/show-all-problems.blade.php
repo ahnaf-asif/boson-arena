@@ -15,18 +15,12 @@
 @endif
                     " >
                     <p style="font-size: 20px;">{!! $problem->name !!}
-                        <span
-                            class="text-danger"
-                            style="
-                                                font-size:11px;
-                                                font-weight: bolder;">
-                                                    {{$problem->subject->name}}
-                                            </span></p>
-                    <div class="text-right mt-3">
+                    </p>
+                    <div class="text-right mt-4">
                         <button class="btn btn-rounded btn-sm btn-success"
-                                style="width: 100px;text-transform: lowercase;"
+                                style="width: 180px;text-transform: lowercase;"
                         >
-                            Score: {{$problem->score}}
+                            {{$problem->subject->name}}, Score: {{$problem->score}}
                         </button>
                     </div>
                 </li>

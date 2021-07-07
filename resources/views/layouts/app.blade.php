@@ -44,15 +44,24 @@
 
 </head>
 <style>
+    @font-face {
+        font-family: ubuntu;
+        src: url("{{asset('ubuntu.ttf')}}");
+    }
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box !important;
+        /*font-size: 18px;*/
         /*overflow-x: hidden !important;*/
+    }
+    p{
+        font-size: 20px;
     }
     body{
         /*font-family: 'Roboto', sans-serif;*/
-        font-family: Soleil,Arial,sans-serif;
+        /*font-family: Soleil,Arial,sans-serif;*/
+        font-family: ubuntu sans-serif;
 {{--        background-image: url('{{asset('bg_img/bg-3.jpg')}}');--}}
         box-sizing: border-box;;
     }

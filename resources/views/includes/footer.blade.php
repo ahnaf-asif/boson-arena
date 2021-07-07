@@ -15,7 +15,7 @@
 
         <div class="text-center text-xsm-center " style="font-size: 15px; width: 100%; ">
             Copyright &copy;
-            <a class="" target="_blank"  href="https://www.facebook.com/me/">asifthen00b</a><br> <small class="text-muted"> A lot of the front-end components were inspired from <a class="" target="_blank"  href="https://gonitzoggo.com/">Gonitzoggo</a>, special thanks to them. </small>
+            <a class="" target="_blank"  href="https://www.facebook.com/me/">asifthen00b</a><br> <small class="text-muted"> Inspired from <a class="" target="_blank"  href="https://gonitzoggo.com/">Gonitzoggo</a></small>
         </div>
         <!-- Copyright -->
     </footer>

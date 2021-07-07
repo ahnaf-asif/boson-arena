@@ -1,0 +1,30 @@
+.blog-texts{
+    line-height: 1.9em !important;
+    /*font-size:19px !important;*/
+}
+.btn{
+    border-radius: 0;
+    text-transform: initial;
+}
+.blog-header{
+    display: flex;
+    justify-content: space-between;
+    /*border-bottom: 2px solid #F93154;*/
+}
+.blog-header .heading{
+    font-size: 40px;
+    font-weight: bolder;
+}
+.list-group{
+    border-radius: 0 !important;
+}
+.blog-list-item{
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+
+@media (max-width:900px){
+    .blog-header{
+        flex-direction: column;
+        gap: 30px;
+    }
+}
