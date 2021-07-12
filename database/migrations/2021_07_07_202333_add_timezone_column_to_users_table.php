@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
-class AddScoreToUsers extends Migration
+class AddTimezoneColumnToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +12,11 @@ class AddScoreToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->bigInteger('score')->default(0)->nullable();
-        });
+        if (!Schema::hasColumn('users', 'timezone')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->string('timezone')->after('remember_token')->nullable();
+            });
+        }
     }
 
     /**
@@ -26,7 +27,7 @@ class AddScoreToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('score');
+            $table->dropColumn('timezone');
         });
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        
+
     }
 
     /**
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $all_blogs = Blog::orderBy('id','desc')
+                            ->where('archive', true)
+                            ->take(4)->get();
+        $data = [
+            'all_blogs' => $all_blogs
+        ];
+        return view('home', $data);
     }
 }

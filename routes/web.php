@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogDraftController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DraftController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\ProfileController;
@@ -14,11 +17,22 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::prefix('contact')->group(function(){
+    Route::get('/', [ContactController::class, 'index'])->name('contact');
+    Route::post('/submit', [ContactController::class, 'sendMessage'])->name('send-message');
+});
+
+Route::prefix('gallery')->group(function(){
+    Route::get('/', [GalleryController::class, 'index'])->name('gallery');
+    Route::get('/view/{id}', [GalleryController::class, 'viewGallery'])->name('view.gallery');
+});
 
 Route::prefix('blog')->group(function(){
     Route::get('/', [BlogController::class, 'index'])->name('blog');
+    Route::get('/view/{id}', [BlogController::class, 'view'])->name('view.blog');
+    Route::get('/search', [BlogController::class, 'search'])->name('blog.search');
+    Route::get('/filter', [BlogController::class, 'filterBySubject'])->name('blog.filter.by.subject');
 });
-
 
 
 Route::middleware(['auth', 'verified'])->group(function(){
@@ -47,16 +61,13 @@ Route::middleware(['author'])->group(function(){
         Route::get('/new', [DraftController::class, 'showCreateForm'])->name('create.draft');
         Route::post('/new/create',[DraftController::class, 'create'] )->name('create.draft.backend');
         Route::get('/preview/problem/{id}',[DraftController::class, 'preview'])
-            ->name('preview.problem')
-            ->middleware('only_my_problem');
+            ->name('preview.problem');
         Route::get('/problem/edit/{id}', [DraftController::class, 'edit'])
-            ->name('edit.problem')
-            ->middleware('only_my_problem');
+            ->name('edit.problem');
         Route::post('/problem/edit', [DraftController::class,'edit_backend'])
             ->name('edit.problem.backend');
         Route::get('/problem/delete/{id}',[DraftController::class, 'delete'])
-            ->name('delete.problem')
-            ->middleware('only_my_problem');
+            ->name('delete.problem');
 
         Route::get('/search/problem',[DraftController::class, 'search'])->name('search.problem');
         Route::get('/add-remove-archive/{problem}/{type}', [DraftController::class, 'addRemoveArchive'])
@@ -69,6 +80,20 @@ Route::middleware(['author'])->group(function(){
         Route::post('/problem/submit', [SolutionController::class, 'test_submit'])
             ->name('test.submit');
 
+    });
+
+
+    Route::prefix('/blog-draft')->group(function(){
+        Route::get('/', [BlogDraftController::class, 'index'] )->name('blog.draft');
+        Route::get('/preview/{id}', [BlogDraftController::class, 'preview'])->name('preview.blog');
+        Route::get('/create', [BlogDraftController::class, 'showCreateForm'])->name('create.blog');
+        Route::post('/create', [BlogDraftController::class, 'createBlog'])->name('create.blog');
+        Route::get('/edit/{id}',[BlogDraftController::class, 'editForm'] )->name('edit.blog');
+        Route::post('/update', [BlogDraftController::class, 'updateBLog'])->name('update.blog');
+        Route::get('/delete/{id}', [BlogDraftController::class, 'deleteBlog'])->name('delete.blog');
+        Route::get('/add-remove-archive/{id}/{type}', [BlogDraftController::class, 'addRemoveArchive'])->name('add.remove.archive.blog');
+        Route::post('/og-image-update', [BlogDraftController::class,'updateOgImage'] )->name('blog.og.image.update');
+        Route::get('/search', [BlogDraftController::class, 'search'])->name('blog.draft.search');
     });
 });
 Route::middleware(['moderator'])->group(function(){

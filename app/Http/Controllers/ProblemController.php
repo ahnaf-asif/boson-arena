@@ -161,7 +161,7 @@ class ProblemController extends Controller
 
     }
     public function search(Request $req){
-        $all_problems = NormalProblem::where('name','like','%'.$req->search.'%')->paginate(10)->withQueryString();
+        $all_problems = NormalProblem::where('archive', 1)->where('name','like','%'.$req->search.'%')->paginate(10)->withQueryString();
         $ranklist_users = User::select(['name','score'])->orderBy('score','DESC')->take(10)->get();
 
         $subjects = Subject::all();

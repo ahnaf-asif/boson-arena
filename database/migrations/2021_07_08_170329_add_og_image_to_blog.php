@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddScoreToNormalProblems extends Migration
+class AddOgImageToBlog extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddScoreToNormalProblems extends Migration
      */
     public function up()
     {
-        Schema::table('normal_problems', function (Blueprint $table) {
-            $table->bigInteger('score')->default(0)->nullable();
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->string('og_image');
         });
     }
 
@@ -25,8 +25,8 @@ class AddScoreToNormalProblems extends Migration
      */
     public function down()
     {
-        Schema::table('normal_problems', function (Blueprint $table) {
-            $table->dropColumn('score');
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->dropColumn('og_image');
         });
     }
 }

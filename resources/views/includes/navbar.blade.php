@@ -1,10 +1,10 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark  fixed-top my-navbar"
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top my-navbar bg-super-light shadow-2"
      style="">
     <!-- Container wrapper -->
     <div class="container brand-container">
 
-        <a class="navbar-brand" href="/" style="font-weight: bolder; letter-spacing: 0.1em; font-size: 1.3em;">বোসন বিজ্ঞান সংঘ</a>
+        <a class="navbar-brand" href="/" style="font-weight: bolder; font-size: 1.5rem; color:black"> বোসন বিজ্ঞান সংঘ</a>
 
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,87 +19,92 @@
             </ul>
             <div class="d-flex align-items-center navbar-inside-1">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-inside-2">
-{{--                    <li class="nav-item dropdown">--}}
-{{--                        <a--}}
-{{--                            id="navbarDropdown1"--}}
-{{--                            class="nav-link dropdown-toggle"--}}
-{{--                            href="#" role="button"--}}
-{{--                            data-mdb-toggle="dropdown"--}}
-{{--                            aria-haspopup="true"--}}
-{{--                            aria-expanded="false" v-pre>--}}
-{{--                            <img src="{{asset('custom_icons/medal.svg')}}" style="--}}
-{{--                                height:45px;--}}
-{{--                                margin-right:-3px;--}}
-{{--                                margin-top: -5px;--}}
-{{--                            ">Compete--}}
-{{--                        </a>--}}
+                    <li class="nav-item dropdown">
+                        <a
+                            id="navbarDropdown1"
+                            class="nav-link dropdown-toggle"
+                            href="#" role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                            COMPETE
+                        </a>
+                        <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
 
+                            <a class="dropdown-item" href="{{route('problems')}}">
+                                <i class="far fa-folder"></i> Problems
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-folder"></i> Contests
+                            </a>
 
-{{--                        <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">--}}
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a
+                            id="navbarDropdown1"
+                            class="nav-link dropdown-toggle"
+                            href="#" role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                            ARCHIVE
+                        </a>
+                        <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
 
-{{--                            <a class="dropdown-item" href="{{route('problems')}}">--}}
-{{--                                <i class="far fa-folder"></i> Problems--}}
-{{--                            </a>--}}
-{{--                            <a class="dropdown-item" href="#">--}}
-{{--                                <i class="far fa-folder"></i> Olympiad--}}
-{{--                            </a>--}}
-
-{{--                            <a class="dropdown-item" href="#">--}}
-{{--                                <i class="far fa-folder"></i> Quiz--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
+                            <a class="dropdown-item" href="{{route('blog')}}">
+                                <i class="far fa-folder"></i> Blog
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-folder"></i> Article
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-folder"></i> Resources
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="far fa-folder"></i> FAQ
+                            </a>
+                        </div>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('problems')}}">
-                            <span>
-                               <img src="{{asset('custom_icons/medal.svg')}}" style="
-                                   height:45px;
-                                   margin-right:-3px;
-                                   margin-top: -5px;">Problems
-                            </span>
+                        <a class="nav-link" href="#">
+                            EVENTS
                         </a>
                     </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#">--}}
-{{--                            <span>--}}
-{{--                               <img src="{{asset('custom_icons/puzzle.svg')}}" style="--}}
-{{--                                height:55px;--}}
-{{--                                margin-right:-3px;--}}
-{{--                                margin-top: -10px;--}}
-{{--                                ">Events--}}
-{{--                            </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('blog')}}">
-                            <span>
-                              <img src="{{asset('custom_icons/bulb.svg')}}" style="
-                                height:45px;
-                                margin-right:-3px;
-                                margin-top: -3px;
-                                ">Blog
-                            </span>
+                        <a class="nav-link" href="{{route('gallery')}}">
+                            GALLERY
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contact')}}">
+                            ABOUT
                         </a>
                     </li>
 
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contact')}}">
+                            CONTACT
+                        </a>
+                    </li>
                     @guest
                         @if(Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link login-regi" href="{{ route('login') }}">
-                                        <span style="display: flex;align-items: center;">
-                                        <i style="font-size: 25px;" class="fas fa-sign-in-alt"></i>
-                                        &nbsp;&nbsp;Login
-                                        </span>
+                                <a class="nav-link" href="{{ route('login') }}">
+
+                                        LOGIN
+
                                 </a>
                             </li>
                         @endif
                         @if(Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link login-regi" href="{{ route('register') }}">
-                                        <span style="">
-                                        <i style="font-size: 22px;" class="fas fa-user"></i>
-                                         &nbsp;Register
-                                        </span>
+                                <a class="nav-link" href="{{ route('register') }}">
+
+{{--                                        <i style="font-size: 22px;" class="fas fa-user"></i>--}}
+                                         REGISTER
+
                                 </a>
                             </li>
                         @endif
@@ -107,18 +112,18 @@
                         <li class="nav-item dropdown">
                             <a
                                 id="navbarDropdown"
-                                class="nav-link login-regi dropdown-toggle"
+                                class="nav-link dropdown-toggle"
                                 href="#" role="button"
                                 data-mdb-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->username }}
                             </a>
 
 
                             <div class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" href="{{route('profile', ['username'=>'asifthen00b'])}}">
+                                <a class="dropdown-item" href="{{route('profile', ['username'=>Auth::user()->username])}}">
                                     <i class="far fa-id-badge"></i> Profile
                                 </a>
 
@@ -129,6 +134,10 @@
                                         <a class="dropdown-item" href="{{route('draft')}}">
                                             <i class="far fa-folder"></i> Draft
                                         </a>
+                                        <a class="dropdown-item" href="{{route('blog.draft')}}">
+                                            <i class="far fa-folder"></i> Blog Draft
+                                        </a>
+                                        @break
                                     @endif
 
                                 @endforeach

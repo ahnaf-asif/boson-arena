@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class DraftController extends Controller
 {
+
+
+
+
 
     public function index(){
 
@@ -29,6 +34,8 @@ class DraftController extends Controller
     }
     public function create(Request $req)
     {
+
+
         $new_problem = new NormalProblem;
 
         $new_problem -> subject_id          = $req -> subject;
@@ -51,6 +58,7 @@ class DraftController extends Controller
 
     }
     public function edit(Request $req){
+
         $current_problem = NormalProblem::find($req->id);
         $subjects = Subject::all();
         $data = [
@@ -60,6 +68,7 @@ class DraftController extends Controller
         return view('edit-problem', $data);
     }
     public function edit_backend(Request  $req){
+
         $current_problem = NormalProblem::find($req->id);
         $current_problem -> subject_id          = $req -> subject;
         $current_problem -> name                = $req -> problem_name;

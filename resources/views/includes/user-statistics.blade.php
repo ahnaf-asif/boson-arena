@@ -1,38 +1,56 @@
-<div class="container">
+<style>
+    .profile-heading-stats{
+        font-size: 1.5rem;
+    }
+</style>
 
-    <div class="text-center text-light heading-stats bg-success px-3 py-2 font-weight-bolder">
-        Solved Problems
+<div class="">
+    <div class="hello py-3 px-3 " style="background: #1f6fb2" >
+        <h2 class="font-weight-bold text-light">My Statistics</h2>
     </div>
-{{--    <hr>--}}
-    <div class="solved-problems shadow-2  bg-light">
-        <div class="row flex-wrap ">
-        @for($i = 0; $i <= 10;$i++)
-            <div class="col-4 my-3">
-                <a href="#">Problem name here</a>
-            </div>
-        @endfor
-        </div>
+    <div class="py-3 px-2 mb-2" style="border: 1px solid rgba(0,0,0,.125);background: white;">
+        <table class="table table-borderless table-responsive">
+            <tbody>
+                <tr>
+                    <td class="profile-heading-stats">Score</td>
+                    <td class="profile-heading-stats text-success font-weight-bold">{{Auth::user()->score}}</td>
+                </tr>
+                <tr>
+                    <td class="profile-heading-stats">Total Submissions</td>
+                    <td class="profile-heading-stats text-success font-weight-bold">{{$all_submissions}}</td>
+                </tr>
+                <tr>
+                    <td class="profile-heading-stats">Accepted Submissions</td>
+                    <td class="profile-heading-stats text-success font-weight-bold">{{$accepted_submissions}}</td>
+                </tr>
+                <tr>
+                    <td class="profile-heading-stats">Wrong Submissions</td>
+                    <td class="profile-heading-stats text-danger font-weight-bold">{{$wrong_submissions}}</td>
+                </tr>
+                <tr>
+                    <td class="profile-heading-stats">My Problems</td>
+                    <td class="profile-heading-stats text-success font-weight-bold">{{$my_problems}}</td>
+                </tr>
+                <tr>
+                    <td class="profile-heading-stats">My Blogs</td>
+                    <td class="profile-heading-stats text-success font-weight-bold">{{$my_blogs}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="text-center text-light heading-stats bg-danger px-3 py-2 font-weight-bolder">
-        Contest Participation History
-    </div>
-    <div class="contests-participated shadow-2  bg-light">
+{{--    <ul class="list-group">--}}
 
-{{--        <hr>--}}
-        <br>
-        @if(rand(1,2) == 1)
-            @for($i = 0; $i <= 10;$i++)
-                <div class="shadow-2 py-2 px-3 my-3">
+{{--        <li class="list-group-item py-3">--}}
+{{--            <span class="" style="font-size: 20px;">Score : <span class="font-weight-bold text-success">1000</span></span>--}}
+{{--        </li>--}}
 
-                        <a href="#"><h5 class="">Hello world for the first time</h5></a>
+{{--        <li class="list-group-item py-3">--}}
+{{--            <span class="" style="font-size: 20px;">Total Submissions : <span class="font-weight-bold text-success">1000</span></span>--}}
+{{--        </li>--}}
 
-                </div>
-            @endfor
-        @else
-            <div class="not-yet text-center text-danger font-weight-bolder">
-                <span>No participation yet</span>
-            </div>
-        @endif
+{{--        <li class="list-group-item py-3">--}}
+{{--            <span class="" style="font-size: 20px;">Accepted Submissions : <span class="font-weight-bold text-success">123</span></span>--}}
+{{--        </li>--}}
 
-    </div>
+{{--    </ul>--}}
 </div>

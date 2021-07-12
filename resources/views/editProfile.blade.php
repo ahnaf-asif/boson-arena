@@ -11,12 +11,12 @@
 @section('content')
 
 
-    @if(Auth::user()->username == $username)
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                @include('includes.edit-profile-picture')
+{{--                @include('includes.edit-profile-picture')--}}
 
                 <br><br>
 
@@ -162,21 +162,6 @@
         </div>
     </div>
 
-    @else
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">{{ __('You are not allowed to see this page') }}</div>
-
-                        <div class="card-body">
-                            <p class="text-danger font-weight-bold">Unfortunately, you are not allowed to see the contents of this page. Please <a href="{{route('home')}}">Go Back</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
     @include('includes.toast-testing')
 @endsection
 

@@ -13,4 +13,7 @@ class Subject extends Model
     {
         return $this->hasMany(NormalProblem::class);
     }
+    public function blogs(): HasMany{
+        return $this->hasMany(Blog::class);
+    }
 }

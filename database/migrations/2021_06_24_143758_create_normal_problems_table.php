@@ -21,6 +21,8 @@ class CreateNormalProblemsTable extends Migration
             $table->longText('description_en')->nullable()->default('');
             $table->longText('description_bn')->nullable()->default('');
             $table->string('judging_method')->default('manual');
+            $table->bigInteger('score')->default(0)->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->string('identifier')->unique()->nullable();
             $table->timestamps();
         });

@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class="description description-inside py-2 pb-4" style="min-height: 50vh;">
+                    <div class="description description-inside p-2" style="border: 1px solid rgba(0,0,0,.125);background: white;">
                         <div id="description_en_show" class="">
                             {!! $current_problem->description_en !!}
                         </div>

@@ -1,0 +1,35 @@
+footer{
+    background-color: #0086c9;
+    /*padding: 1em 0;*/
+
+}
+footer ul{
+    padding-left: 0;
+}
+footer li{
+    list-style: none;
+
+}
+.footer-socials{
+    display: flex;
+    column-gap: 2rem;
+    row-gap: 0.7rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.socials .fab{
+    font-size: 25px;
+}
+footer *{
+    color: white !important;
+    font-size: 1.1rem;
+}
+.footer-link{
+    text-decoration: none;
+    color: white;
+}
+.footer-link:hover, .footer-link:active{
+    color: lightgray !important;
+    text-decoration: none;
+}
+

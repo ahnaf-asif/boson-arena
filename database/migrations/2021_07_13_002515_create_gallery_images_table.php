@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class AddInformaticsSubject extends Migration
+class CreateGalleryImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +13,10 @@ class AddInformaticsSubject extends Migration
      */
     public function up()
     {
-        DB::table('subjects')->insert(array('name' => 'Informatics'));
+        Schema::create('gallery_images', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,6 +26,6 @@ class AddInformaticsSubject extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('gallery_images');
     }
 }

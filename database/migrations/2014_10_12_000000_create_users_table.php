@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->bigInteger('educational_level_id');
+            $table->bigInteger('score')->default(0)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

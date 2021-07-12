@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Login
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -48,6 +52,11 @@
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4 text-muted">
+                                <small>Not registered yet? <a href="/register/">Register Here</a></small>
                             </div>
                         </div>
 

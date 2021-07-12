@@ -24,6 +24,9 @@ class CreateSubjectsTable extends Migration
         DB::table('subjects')->insert(array('name' => 'Biology'));
         DB::table('subjects')->insert(array('name' => 'Chemistry'));
         DB::table('subjects')->insert(array('name' => 'Astronomy'));
+        DB::table('subjects')->insert(array('name' => 'Informatics'));
+        DB::table('subjects')->insert(array('name' => 'General Knowledge'));
+        DB::table('subjects')->insert(array('name' => 'Economics'));
     }
 
     /**
