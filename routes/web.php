@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogDraftController;
 use App\Http\Controllers\ContactController;
@@ -103,7 +104,9 @@ Route::middleware(['moderator'])->group(function(){
 
 Route::middleware(['admin'])->group(function(){
 
+    Route::prefix('admin')->group(function(){
 
+        Route::get('/', [AdminController::class, 'index'])->name('admin');
 
-
+    });
 });

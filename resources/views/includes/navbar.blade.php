@@ -142,6 +142,19 @@
 
                                 @endforeach
 
+                                @foreach(Auth::user()->roles as $role)
+
+                                    @if($role->name == 'admin')
+
+                                        <a class="dropdown-item" href="{{route('admin')}}">
+                                            <i class="far fa-folder"></i> Admin Panel
+                                        </a>
+
+                                        @break
+                                    @endif
+
+                                @endforeach
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
