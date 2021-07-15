@@ -107,6 +107,7 @@ Route::middleware(['admin'])->group(function(){
     Route::prefix('admin')->group(function(){
 
         Route::get('/', [AdminController::class, 'index'])->name('admin');
-
+        Route::get('/contact', [AdminController::class, 'contact'])->name('admin.contact');
     });
+
 });

@@ -15,6 +15,9 @@ class CreateGalleryImagesTable extends Migration
     {
         Schema::create('gallery_images', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('gallery_id');
+            $table->string('title')->nullable();
+            $table->string('image_link')->nullable();
             $table->timestamps();
         });
     }

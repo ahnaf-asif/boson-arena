@@ -24,7 +24,7 @@
         @else
             @foreach($all_blogs as $blog)
                 <div class="col-lg-6">
-                    <div class="card blog-card">
+                    <div class="card blog-card shadow-0">
 
 
 

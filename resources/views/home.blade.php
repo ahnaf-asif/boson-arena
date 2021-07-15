@@ -37,7 +37,7 @@
 
             @foreach($all_blogs as $blog)
                 <div class="col-lg-4 col-md-6">
-                    <div class="card blog-card">
+                    <div class="card blog-card shadow-0">
 {{--                        bg-image hover-zoom--}}
                         <div class="bg-image hover-zoom">
                             <img

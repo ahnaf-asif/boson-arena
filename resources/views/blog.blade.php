@@ -11,7 +11,7 @@
 
 @section('content')
 
-    <div class="container bg-super-light py-3">
+    <div class="container py-3">
 
 
         <div class="blog-header pb-3 mb-5" style="border-bottom: 2px solid green;">
