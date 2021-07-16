@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Blog;
+use App\Models\Faq;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,5 +34,26 @@ class HomeController extends Controller
             'all_blogs' => $all_blogs
         ];
         return view('home', $data);
+    }
+    public function about(){
+        $about = About::find(1);
+        $data = [
+            'about' => $about
+        ];
+        return view('about', $data);
+    }
+    public function resources(){
+        $resources = Resource::find(1);
+        $data = [
+            'resources' => $resources
+        ];
+        return view('resources', $data);
+    }
+    public function faq(){
+        $faq = Faq::find(1);
+        $data = [
+            'faq' => $faq
+        ];
+        return view('faq', $data);
     }
 }

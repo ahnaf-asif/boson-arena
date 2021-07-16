@@ -27,10 +27,10 @@
                                <a href="{{route('blog')}}" class="footer-link">About</a>
                            </li>
                            <li class="pb-2">
-                               <a href="#" class="footer-link">Contact</a>
+                               <a href="{{route('contact')}}" class="footer-link">Contact</a>
                            </li>
                            <li class="pb-2">
-                               <a href="#" class="footer-link">Resources</a>
+                               <a href="{{route('resources')}}" class="footer-link">Resources</a>
                            </li>
 
                        </ul>
@@ -47,7 +47,7 @@
                                <a href="{{route('blog')}}" class="footer-link">Contests</a>
                            </li>
                            <li class="pb-2">
-                               <a href="#" class="footer-link">Blog</a>
+                               <a href="{{route('blog')}}" class="footer-link">Blog</a>
                            </li>
                            <li class="pb-2">
                                <a href="#" class="footer-link">Article</a>

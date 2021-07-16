@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-
+{{$gallery->title}} | Boson
 @endsection
 
 @section('custom-css')
@@ -17,16 +17,19 @@
 
 
     <div class="container my-5">
-        <h1 class="big-header text-center">This is the title of the gallery</h1>
+        <h1 class="big-header text-center">{{$gallery->title}}</h1>
         <div class="lightbox mt-5">
             <div class="row" style="row-gap: 1.5rem;">
-                @for($i = 0; $i < 10;$i++)
+                @foreach($gallery->galleryImages as $img)
 
                     <div class="col-lg-3 col-md-4 col-sm-12 col-12">
-                        <img src="https://mdbootstrap.com/img/Photos/Thumbnails/Slides/1.jpg" data-mdb-img="https://mdbootstrap.com/img/Photos/Slides/1.jpg" alt="Lightbox image 1" class="w-100">
+                        <div class="gallery-cover-picture">
+                            <img src="{{$img->image_link}}" data-mdb-img="{{$img->image_link}}" alt="{{$img->title}}" class="w-100">
+                        </div>
+                        <p class="text-center text-muted">{{$img->title}}</p>
                     </div>
 
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>

@@ -33,6 +33,8 @@
 
     <link rel="stylesheet" href="{{asset('trumbowyg/dist/ui/trumbowyg.min.css')}}">
 
+    <link rel="stylesheet" href="{{asset('trumbowyg/dist/plugins/table/ui/trumbowyg.table.min.css')}}">
+
 {{--    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">--}}
 {{--        {{$no_mathjax}}--}}
 

@@ -34,3 +34,11 @@
 <script src="{{asset('admin_assets/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin_assets/dist/js/pages/dashboard.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/lightbox/mdb.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="{{asset('js/toastr.min.js')}}"></script>
+<script src="{{asset('trumbowyg/dist/trumbowyg.min.js')}}"></script>
+<script src="//rawcdn.githack.com/RickStrahl/jquery-resizable/master/dist/jquery-resizable.min.js"></script>
+<script src="{{asset('js/all.js')}}"></script>
+<script src="{{asset('js/admin.js')}}"></script>

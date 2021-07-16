@@ -18,9 +18,13 @@
                 </div>
             </div>
             @yield('content')
+
+            @include('includes.toast-testing')
         </div>
         @include('Admin.includes.footer')
     </div>
+
     @include('Admin.includes.scripts')
+    <script src="trumbowyg/dist/plugins/table/trumbowyg.table.min.js"></script>
 </body>
 </html>

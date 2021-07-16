@@ -24,3 +24,9 @@
 <link rel="stylesheet" href="{{asset('admin_assets/plugins/daterangepicker/daterangepicker.css')}}">
 <!-- summernote -->
 <link rel="stylesheet" href="{{asset('admin_assets/plugins/summernote/summernote-bs4.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('css/lightbox/mdb.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('trumbowyg/dist/ui/trumbowyg.min.css')}}">
+<link rel="stylesheet" href="{{asset('trumbowyg/dist/plugins/table/ui/trumbowyg.table.min.css')}}">

@@ -48,6 +48,13 @@
                         <div class="card-header pb-5">
                             <h1>Leave us a message</h1>
                             <p>Please share your feedback. If you have any questions, you can ask too. We will reach out to you as soon as possible.</p>
+                            @error('message')
+
+
+                            <p class="mt-5">
+                                <small class="text-danger font-weight-bold">Your message is too long. You can send atmost 1000 letters</small>
+                            </p>
+                            @enderror
                         </div>
 
                         <div class="card-body">
@@ -72,6 +79,9 @@
                                     </div>
                                 </div>
                                 @else
+                                    <input type="hidden" name="name" value="{{Auth::user()->name}}">
+                                    <input type="hidden" name="email" value="{{Auth::user()->email}}">
+
                                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                                 @endguest
 
@@ -89,9 +99,10 @@
 
                                     <div class="col-md-9">
 {{--                                        <input id="message" type="text" class="form-control @error('email') is-invalid @enderror" name="message" value="{{ old('message') }}" required >--}}
-                                        <textarea name="message" id="message" rows="8" class="form-control"></textarea>
+                                        <textarea name="message" id="message" rows="8" class="form-control">{{ old('message') }}</textarea>
 
                                     </div>
+
                                 </div>
                                 <div class="form-group mt-4 row">
                                     <div class="col-md-2"></div>

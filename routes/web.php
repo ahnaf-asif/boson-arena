@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticleDraftController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogDraftController;
 use App\Http\Controllers\ContactController;
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify'=>true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [Homecontroller::class, 'about'])->name('about');
+Route::get('/resources',[HomeController::class, 'resources'] )->name('resources');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+
 
 Route::prefix('contact')->group(function(){
     Route::get('/', [ContactController::class, 'index'])->name('contact');
@@ -96,6 +101,18 @@ Route::middleware(['author'])->group(function(){
         Route::post('/og-image-update', [BlogDraftController::class,'updateOgImage'] )->name('blog.og.image.update');
         Route::get('/search', [BlogDraftController::class, 'search'])->name('blog.draft.search');
     });
+
+    Route::prefix('/article-draft')->group(function(){
+       Route::get('/', [ArticleDraftController::class, 'index'])->name('article.draft');
+       Route::get('/create', [ArticleDraftController::class, 'create'])->name('create.article');
+       Route::post('/store', [ArticleDraftController::class, 'store'])->name('store.article');
+       Route::get('/show/{id}', [ArticleDraftController::class, 'show'])->name('show.article');
+       Route::get('/edit/{id}', [ArticleDraftController::class, 'edit'])->name('edit.article');
+       Route::post('/update/{id}', [ArticleDraftController::class, 'update'])->name('update.article');
+       Route::get('/delete/{id}', [ArticleDraftController::class, 'destroy'])->name('delete.article');
+
+    });
+
 });
 Route::middleware(['moderator'])->group(function(){
 
@@ -107,7 +124,35 @@ Route::middleware(['admin'])->group(function(){
     Route::prefix('admin')->group(function(){
 
         Route::get('/', [AdminController::class, 'index'])->name('admin');
-        Route::get('/contact', [AdminController::class, 'contact'])->name('admin.contact');
+        Route::get('/about', [AdminController::class, 'about'])->name('admin.about');
+        Route::post('/about/update', [AdminController::class, 'updateAbout'])->name('update.about');
+        Route::get('/resources',[AdminController::class, 'resources'])->name('admin.resources');
+        Route::post('/resources/update', [AdminController::class, 'updateResources'])->name('admin.update.resources');
+        Route::get('/faq', [AdminController::class, 'faq'])->name('admin.faq');
+        Route::post('/faq/update', [AdminController::class, 'updateFaq'])->name('admin.update.faq');
+
+
+        Route::prefix('contact')->group(function(){
+            Route::get('/', [AdminController::class, 'contact'])->name('admin.contact');
+            Route::get('/all', [AdminController::class, 'allContact'])->name('admin.all.contact');
+            Route::get('/mark-as-read/{id}/{type}', [AdminController::class, 'markAsRead'])->name('admin.contact.mark');
+        });
+
+        Route::prefix('gallery')->group(function(){
+            Route::get('/', [AdminController::class, 'gallery'])->name('admin.gallery');
+            Route::get('/new', [AdminController::class, 'newGallery'])->name('admin.new.gallery');
+            Route::post('/new/add', [AdminController::class, 'addNewGallery'])->name('admin.add.new.gallery');
+            Route::get('/view/{id}', [AdminController::class, 'viewGallery'])->name('admin.view.gallery');
+            Route::post('/add/image',[AdminController::class, 'addGalleryImage'])->name('admin.add.new.gallery-image');
+            Route::get('/delete/image/{id}/{gallery_id}', [AdminController::class, 'deleteGalleryImage'])->name('delete.gallery.image');
+            Route::get('/delete/gallery/{id}', [AdminController::class, 'deleteGallery'])->name('admin.delete.gallery');
+        });
+
+
+
+
     });
+
+
 
 });

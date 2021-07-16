@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">
-                <div class="small-box bg-info">
+                <div class="small-box bg-secondary">
                     <div class="inner">
                         <h3>89</h3>
                         <p>Galleries</p>
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">
-                <div class="small-box bg-danger">
+                <div class="small-box bg-primary">
                     <div class="inner">
                         <h3>30</h3>
                         <p>Blogs</p>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">
-                <div class="small-box bg-info">
+                <div class="small-box bg-secondary">
                     <div class="inner">
                         <h3>89</h3>
                         <p>Contests</p>

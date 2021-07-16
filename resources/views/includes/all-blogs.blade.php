@@ -35,7 +35,7 @@
                                 alt="title image"
                             />
                         </div>
-                        <div class="card-body position-relative">
+                        <div class="card-body position-relative" style="padding-left: 0; padding-right: 0;">
                             <span class="badge translate-middle bg-success blog-badge">{{$blog->subject->name}}</span>
 
                             <div class="card-title">
@@ -45,7 +45,7 @@
                             <p class="card-text">
                                 {!! $blog->short_description !!}
                             </p>
-                            <a href="{{route('view.blog', ['id'=>$blog->id])}}" class="btn btn-primary">Read more</a>
+                            <a href="{{route('view.blog', ['id'=>$blog->id])}}" class="">Read more</a>
                         </div>
                     </div>
                 </div>

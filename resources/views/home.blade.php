@@ -46,7 +46,7 @@
                                 alt="title image"
                             />
                         </div>
-                        <div class="card-body position-relative">
+                        <div class="card-body position-relative" style="padding-left: 0;padding-right: 0;">
                             <span class="badge translate-middle bg-success blog-badge">{{$blog->subject->name}}</span>
 
                             <div class="card-title">

@@ -34,9 +34,9 @@
                             <a class="dropdown-item" href="{{route('problems')}}">
                                 <i class="far fa-folder"></i> Problems
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-folder"></i> Contests
-                            </a>
+{{--                            <a class="dropdown-item" href="#">--}}
+{{--                                <i class="far fa-folder"></i> Contests--}}
+{{--                            </a>--}}
 
                         </div>
                     </li>
@@ -58,26 +58,26 @@
                             <a class="dropdown-item" href="#">
                                 <i class="far fa-folder"></i> Article
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('resources')}}">
                                 <i class="far fa-folder"></i> Resources
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('faq')}}">
                                 <i class="far fa-folder"></i> FAQ
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            EVENTS
-                        </a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="#">--}}
+{{--                            EVENTS--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('gallery')}}">
                             GALLERY
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('contact')}}">
+                        <a class="nav-link" href="{{route('about')}}">
                             ABOUT
                         </a>
                     </li>
@@ -136,6 +136,9 @@
                                         </a>
                                         <a class="dropdown-item" href="{{route('blog.draft')}}">
                                             <i class="far fa-folder"></i> Blog Draft
+                                        </a>
+                                        <a class="dropdown-item" href="{{route('article.draft')}}">
+                                            <i class="far fa-folder"></i> Article Draft
                                         </a>
                                         @break
                                     @endif
