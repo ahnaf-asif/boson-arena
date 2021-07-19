@@ -10,7 +10,7 @@
 
 
 @section('content')
-{{--    @include('includes.delete-blog-modal')--}}
+    @include('includes.delete-article-modal')
     <div class="container py-3 bg-super-light">
         <div class="preview-blog-header mb-5">
             <h1 class="text-center">{!! $current_article->title !!}</h1>
@@ -34,7 +34,21 @@
                 </div>
                 <div class="col-md-4">
 
-{{--                    @include('includes.update-preview-image')--}}
+                    <div class="blog-options">
+                        <img id="profilePicturePreviewImg" src="{{$current_article->og_image}}" alt="preview image"
+                             style="width: 99%;height:auto;border: 2px solid gray;">
+                    </div>
+                    <div class="blog-options py-3 px-2 my-2" style="border: 1px solid rgba(0,0,0,.125);background: white;">
+                        <h5>Update Preview Image (1024 x 650)</h5>
+                        <hr>
+                        <input id="profilePictureInput" type="file">
+                        <form class="my-2" action="{{route('article.og.image.update')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$current_article->id}}">
+                            <input id="profilePictureLink" type="hidden" name="picture_link" value="" >
+                            <input id="profilePicturesubmitBtn" type="submit" class="btn btn-dark" value="Submit" disabled>
+                        </form>
+                    </div>
 
                     <div class="blog-options">
 
@@ -51,10 +65,10 @@
                             >Delete</button>
 
                             @if($current_article->archive == 0)
-                                <a href="{{route('add.remove.archive.blog', ['id' => $current_article->id, 'type' => 1])}}"
+                                <a href="{{route('add.remove.archive.article', ['id' => $current_article->id, 'type' => 1])}}"
                                    class="btn btn-success btn-long mt-2">Add to archive</a>
                             @else
-                                <a href="{{route('add.remove.archive.blog', ['id' => $current_article->id, 'type' => 0])}}"
+                                <a href="{{route('add.remove.archive.article', ['id' => $current_article->id, 'type' => 0])}}"
                                    class="btn btn-warning btn-long mt-2">Remove From Archive</a>
                             @endif
 

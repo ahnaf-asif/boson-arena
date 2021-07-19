@@ -39,24 +39,32 @@
             </div>
             <div class="col-md-4">
 
-                <div class="blog-others px-3 py-4">
-                    <div class="fb-like" data-href="{{route('view.blog', ['id'=>$current_blog->id])}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+                <h3>Like And Share</h3>
+                <hr>
+                <div class="facebook-share my-3" style="display: flex;justify-content: center;">
+                    <div class="fb-like" data-href="{{route('view.blog', ['id'=>$current_blog->id])}}" data-width="" data-layout="box_count" data-action="like" data-size="large" data-share="true"></div>
                 </div>
-                <div class="blog-others mt-3 px-3 py-4">
-                    <h4 class="font-weight-bold">Related Blogs</h4>
-                    <hr>
-                    @if(count($related_blogs) == 0)
-                        <p class="text-muted">No Related blog is found</p>
-                    @else
-                        @foreach($related_blogs as $rb)
-                            <ul>
-                                <a href="{{route('view.blog', ['id'=>$rb->id])}}" class="link-related-blog">
-                                    <li class="mt-3">{!! $rb->title !!}</li>
-                                </a>
-                            </ul>
-                        @endforeach
-                    @endif
-                </div>
+
+                <h3>Related Blogs</h3>
+                <hr>
+
+                @foreach($related_blogs as $lst)
+                    <a href="{{route('view.blog', ['id' => $lst->id])}}" class="article-sidebar">
+                        <div class="row article-sidebar-inside my-3">
+                            <div class="col-5">
+                                <img src="{{$lst->og_image}}" alt="title_image" class="w-100">
+                            </div>
+                            <div class="col-7">
+                                <p>
+                                    <small>{{$lst->created_at->format('d M, Y')}}</small><br>
+                                    <span class="font-weight-bold">{!! $lst->title !!}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+
+
             </div>
         </div>
     </div>

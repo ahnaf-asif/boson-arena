@@ -1,22 +1,4 @@
 <div class="all-blogs">
-{{--    <ul class="list-group">--}}
-
-{{--        @if(count($all_blogs) == 0)--}}
-{{--            <h1 class="text-muted">No Blogs Found</h1>--}}
-{{--        @endif--}}
-
-{{--        @foreach($all_blogs as $blog)--}}
-{{--            <li class="list-group-item blog-list-item my-2">--}}
-{{--                <h2 class="font-weight-bold" >{!! $blog->title !!}</h2>--}}
-{{--                <p class="text-muted mb-5"><small style="font-size: 13px;">{{$blog->user->name}}, {{$blog->created_at->format('Y:m:d h:i a')}}, <span class="font-weight-bold">{{$blog->subject->name}}</span></small></p>--}}
-{{--                <hr>--}}
-{{--                <div class="mb-5 blog-texts">--}}
-{{--                    {!! $blog->short_description !!}--}}
-{{--                </div>--}}
-{{--                <p><a class="btn btn-primary" href="{{route('view.blog', ['id' => $blog->id])}}">SEE MORE</a></p>--}}
-{{--            </li>--}}
-{{--        @endforeach--}}
-{{--    </ul>--}}
 
     <div class="row" style="row-gap: 1.5rem;">
         @if(count($all_blogs) == 0)
@@ -40,7 +22,7 @@
 
                             <div class="card-title">
                                 <h3 class="font-weight-bold">{!! $blog->title !!}</h3>
-                                <p><small>{{$blog->user->name}} - {{$blog->created_at->format('Y:m:d h:i a')}}</small></p>
+                                <p><small>{{$blog->user->name}} - {{$blog->created_at->format('d M, Y')}}</small></p>
                             </div>
                             <p class="card-text">
                                 {!! $blog->short_description !!}

@@ -65,6 +65,9 @@ Blog Draft
             </ul>
             @endif
         </div>
+        <div class="container">
+            {{$all_blogs->links()}}
+        </div>
     </div>
 
     @include('includes.toast-testing')

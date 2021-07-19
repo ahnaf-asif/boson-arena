@@ -20,7 +20,7 @@
                 NEW Article
             </a>
             <div class="search">
-                <form action="{{route('blog.draft.search')}}" method="GET">
+                <form action="{{route('article.draft.search')}}" method="GET">
                     {{--                    @csrf--}}
                     <div class="input-group bg-super-light search-draft">
                         <div class="form-outline search-draft-input">
@@ -64,6 +64,9 @@
                     @endforeach
                 </ul>
             @endif
+        </div>
+        <div class="container">
+            {{$all_articles->links()}}
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Create Article
+    Edit Article
 @endsection
 
 @section('custom-css')
@@ -11,10 +11,11 @@
 
 @section('content')
 
+
     <div class="container drafts bg-super-light py-4 shadow-2">
 
         <div class="form-header-h2 text-center mb-6">
-            <h2 class="font-weight-bold">Create A New Article</h2>
+            <h2 class="font-weight-bold">Edit Your Article</h2>
         </div>
 
 
@@ -25,10 +26,10 @@
         </div>
         @enderror
 
-        <form action="{{route('store.article')}}" method="POST">
+        <form action="{{route('update.article', ['id' => $current_article->id])}}" method="POST">
             @csrf
             <div class="form-outline mb-4">
-                <input value="{{ old('article_title') }}" type="text" id="article_title" name="article_title" class="form-control" required/>
+                <input value="{{ $current_article->title }}" type="text" id="article_title" name="article_title" class="form-control" required/>
                 <label class="form-label" for="article_title" >Article Title</label>
                 @error('article_title')
                 <span class="invalid-feedback" role="alert">
@@ -40,19 +41,17 @@
 
             <div class="form-group mb-4">
                 <label for="short_description">Short Description (at most 500 characters)</label>
-                <textarea required rows="4" name="short_description" id="short_description" class="form-control">{{ old('short_description') }}</textarea>
+                <textarea required rows="4" name="short_description" id="short_description" class="form-control">{{ $current_article->short_description }}</textarea>
 
             </div>
             <div class="form-group mb-4">
                 <label for="article">Article</label>
-                <textarea required rows="30" name="article" id="article" class="form-control">{{ old('article') }}</textarea>
+                <textarea required rows="30" name="article" id="article" class="form-control">{{ $current_article->article }}</textarea>
 
             </div>
 
-            <input type="hidden" name="og_image" value="{{asset('images/default_og_image.jpg')}}">
-
             <div class="text-center">
-                <input type="submit" class="btn btn-danger btn-lg" value="Submit">
+                <input type="submit" class="btn btn-danger btn-lg" value="UPDATE">
             </div>
         </form>
     </div>

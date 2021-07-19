@@ -55,7 +55,7 @@
                             <a class="dropdown-item" href="{{route('blog')}}">
                                 <i class="far fa-folder"></i> Blog
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('article')}}">
                                 <i class="far fa-folder"></i> Article
                             </a>
                             <a class="dropdown-item" href="{{route('resources')}}">

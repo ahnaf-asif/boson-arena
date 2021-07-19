@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleDraftController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogDraftController;
@@ -21,7 +22,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [Homecontroller::class, 'about'])->name('about');
 Route::get('/resources',[HomeController::class, 'resources'] )->name('resources');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
-
+Route::get('/test-vue', function(){
+    return view('vue-text');
+});
 
 Route::prefix('contact')->group(function(){
     Route::get('/', [ContactController::class, 'index'])->name('contact');
@@ -38,6 +41,11 @@ Route::prefix('blog')->group(function(){
     Route::get('/view/{id}', [BlogController::class, 'view'])->name('view.blog');
     Route::get('/search', [BlogController::class, 'search'])->name('blog.search');
     Route::get('/filter', [BlogController::class, 'filterBySubject'])->name('blog.filter.by.subject');
+});
+
+Route::prefix('article')->group(function(){
+    Route::get('/', [ArticleController::class, 'index'])->name('article');
+    Route::get('/show/{id}', [ArticleController::class, 'show'])->name('view.article');
 });
 
 
@@ -103,14 +111,16 @@ Route::middleware(['author'])->group(function(){
     });
 
     Route::prefix('/article-draft')->group(function(){
-       Route::get('/', [ArticleDraftController::class, 'index'])->name('article.draft');
-       Route::get('/create', [ArticleDraftController::class, 'create'])->name('create.article');
-       Route::post('/store', [ArticleDraftController::class, 'store'])->name('store.article');
-       Route::get('/show/{id}', [ArticleDraftController::class, 'show'])->name('show.article');
-       Route::get('/edit/{id}', [ArticleDraftController::class, 'edit'])->name('edit.article');
-       Route::post('/update/{id}', [ArticleDraftController::class, 'update'])->name('update.article');
-       Route::get('/delete/{id}', [ArticleDraftController::class, 'destroy'])->name('delete.article');
-
+        Route::get('/', [ArticleDraftController::class, 'index'])->name('article.draft');
+        Route::get('/create', [ArticleDraftController::class, 'create'])->name('create.article');
+        Route::post('/store', [ArticleDraftController::class, 'store'])->name('store.article');
+        Route::get('/show/{id}', [ArticleDraftController::class, 'show'])->name('show.article');
+        Route::get('/edit/{id}', [ArticleDraftController::class, 'edit'])->name('edit.article');
+        Route::post('/update/{id}', [ArticleDraftController::class, 'update'])->name('update.article');
+        Route::get('/delete/{id}', [ArticleDraftController::class, 'destroy'])->name('delete.article');
+        Route::get('/add/remove/{id}/{type}', [ArticleDraftController::class, 'addRemoveArchive'])->name('add.remove.archive.article');
+        Route::get('/search', [ArticleDraftController::class, 'search'])->name('article.draft.search');
+        Route::post('/og/image/update', [ArticleDraftController::class, 'updateOgImage'])->name('article.og.image.update');
     });
 
 });
