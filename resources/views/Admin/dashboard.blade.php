@@ -14,7 +14,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3>{{$user_count}}</h3>
                         <p>Users</p>
                     </div>
                     <div class="icon">
@@ -26,7 +26,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-secondary">
                     <div class="inner">
-                        <h3>89</h3>
+                        <h3>{{$gallery_count}}</h3>
                         <p>Galleries</p>
                     </div>
                     <div class="icon">
@@ -38,7 +38,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>53</h3>
+                        <h3>0</h3>
                         <p>Events</p>
                     </div>
                     <div class="icon">
@@ -50,7 +50,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-primary">
                     <div class="inner">
-                        <h3>30</h3>
+                        <h3>{{$blog_count}}</h3>
                         <p>Blogs</p>
                     </div>
                     <div class="icon">
@@ -62,7 +62,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>34</h3>
+                        <h3>{{$article_count}}</h3>
                         <p>Articles</p>
                     </div>
                     <div class="icon">
@@ -74,7 +74,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>27</h3>
+                        <h3>{{$problem_count}}</h3>
                         <p>Problems</p>
                     </div>
                     <div class="icon">
@@ -86,7 +86,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-secondary">
                     <div class="inner">
-                        <h3>89</h3>
+                        <h3>0</h3>
                         <p>Contests</p>
                     </div>
                     <div class="icon">

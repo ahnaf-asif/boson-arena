@@ -11,7 +11,7 @@
 @section('content')
 
 {{--@include ('includes.banner')--}}
-<div class="container my-1 mt-3 mb-5">
+<div class="container my-1 mb-5">
     <div class="row" style="">
         <div class="col-lg-6" style="display: flex;align-items: center">
             <img style="width:100%;" src="{{asset('images/home-page-image.jpg')}}" alt="home-page-image">
@@ -29,10 +29,48 @@
     </div>
 </div>
 
+@if(count($all_articles) != 0)
+
+    <div class="latest-blogs container my-1 mb-5">
+        <h1 class="big-header text-center mb-4">Latest Articles</h1>
+        <hr>
+        <div class="row " style="row-gap: 1.5rem;">
+
+            @foreach($all_articles as $article)
+                <div class="col-lg-4 col-md-6">
+                    <div class="card blog-card shadow-0">
+                        {{--                        bg-image hover-zoom--}}
+                        <div class="bg-image hover-zoom">
+                            <img
+                                src="{{$article->og_image}}"
+                                class="card-img-top"
+                                alt="title image"
+                            />
+                        </div>
+                        <div class="card-body position-relative" style="padding-left: 0;padding-right: 0;">
+                            <div class="card-title">
+                                <h3 class="font-weight-bold">{!! $article->title !!}</h3>
+                                <p><small>{{$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
+                            </div>
+                            <p class="card-text medium-paragraph">
+                                {!! $article->short_description !!}
+                            </p>
+                            <a href="{{route('view.article', ['id'=>$article->id])}}" class="">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+@endif
+
+
 @if(count($all_blogs) != 0)
 
     <div class="latest-blogs container my-2 mb-5">
         <h1 class="big-header text-center mb-4">Latest Blogs</h1>
+        <hr>
         <div class="row " style="row-gap: 1.5rem;">
 
             @foreach($all_blogs as $blog)

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Article;
+use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\GalleryImage;
+use App\Models\NormalProblem;
 use App\Models\Resource;
+use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -30,9 +34,19 @@ class AdminController extends Controller
     public function index(){
 
         $pending_contacts = Contact::where('status', false)->count();
+        $user_count = User::count();
+        $gallery_count = Gallery::count();
+        $blog_count = Blog::count();
+        $article_count = Article::count();
+        $problem_count = NormalProblem::count();
 
         $data = [
-            'pending_contacts' => $pending_contacts
+            'pending_contacts' => $pending_contacts,
+            'user_count' => $user_count,
+            'gallery_count' => $gallery_count,
+            'blog_count' => $blog_count,
+            'article_count' => $article_count,
+            'problem_count' => $problem_count
         ];
         return view('Admin.dashboard', $data);
     }
@@ -171,5 +185,27 @@ class AdminController extends Controller
         $current_gallery = GalleryImage::find($id);
         $current_gallery->delete();
         return redirect()->route('admin.view.gallery', ['id'=>$gallery_id])->with('success', 'Successfully deleted the image');
+    }
+    public function allUsers(){
+        $pending_contacts = Contact::where('status', false)->count();
+        $users = User::orderBy('id', 'desc')->paginate(30);
+        $data = [
+            'users' => $users,
+            'pending_contacts' => $pending_contacts
+        ];
+        return view('Admin.all-users', $data);
+    }
+    public function allAuthors(){
+        $pending_contacts = Contact::where('status', false)->count();
+        $users = User::whereHas('roles', function($q) {
+            $q->where('name', 'author');
+        })->orWhereHas('roles', function($q){
+            $q->where('name', 'admin');
+        })->paginate(30);
+        $data = [
+            'users' => $users,
+            'pending_contacts' => $pending_contacts
+        ];
+        return view('Admin.all-authors', $data);
     }
 }

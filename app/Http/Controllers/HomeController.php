@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Article;
 use App\Models\Blog;
 use App\Models\Faq;
 use App\Models\Resource;
@@ -29,9 +30,13 @@ class HomeController extends Controller
     {
         $all_blogs = Blog::orderBy('id','desc')
                             ->where('archive', true)
-                            ->take(4)->get();
+                            ->take(6)->get();
+        $all_articles = Article::orderBy('id','desc')
+                            ->where('archive', true)
+                            ->take(6)->get();
         $data = [
-            'all_blogs' => $all_blogs
+            'all_blogs' => $all_blogs,
+            'all_articles' => $all_articles
         ];
         return view('home', $data);
     }

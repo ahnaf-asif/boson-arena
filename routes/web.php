@@ -140,6 +140,8 @@ Route::middleware(['admin'])->group(function(){
         Route::post('/resources/update', [AdminController::class, 'updateResources'])->name('admin.update.resources');
         Route::get('/faq', [AdminController::class, 'faq'])->name('admin.faq');
         Route::post('/faq/update', [AdminController::class, 'updateFaq'])->name('admin.update.faq');
+        Route::get('/all-users', [AdminController::class, 'allUsers'])->name('admin.all.users');
+        Route::get('/all-authors', [AdminController::class, 'allAuthors'])->name('admin.all.authors');
 
 
         Route::prefix('contact')->group(function(){

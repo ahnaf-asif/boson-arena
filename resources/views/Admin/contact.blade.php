@@ -15,7 +15,7 @@
             <a class="btn btn-info" href="{{route('admin.all.contact')}}">All messages</a>
             <a class="btn btn-danger" href="{{route('admin.contact')}}">Unread messages</a>
         </div>
-        <table class="table table-bordered table-responsive">
+        <table class="table table-bordered table-responsive w-100">
             <thead>
                 <tr>
                     <th>Date</th>
