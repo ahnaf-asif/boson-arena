@@ -1,3 +1,13 @@
+<?php
+    // universal informations
+    $contact_phone = '+880 1633923851';
+    $contact_email = 'bosonbiggansangho@gmail.com';
+    $contact_whatsapp = 'https://wa.me/1633923851';
+    $contact_whatsapp_number = '+880 1633923851';
+    $contact_facebook = 'https://www.facebook.com/Bosonbigganshongho';
+    $contact_youtube = 'https://www.youtube.com/channel/UCZGrX3xUDUtDFJQIyIMi7BQ';
+?>
+
 @extends('layouts.app')
 
 @section('title')
@@ -125,16 +135,16 @@
                             <tbody>
                                 <tr>
                                     <td class="contact-info-table-td">Phone</td>
-                                    <td class="contact-info-table-td">+880 1755884404</td>
+                                    <td class="contact-info-table-td">{{$contact_phone}}</td>
                                 </tr>
                                 <tr>
                                     <td class="contact-info-table-td">Whatsapp</td>
-                                    <td class="contact-info-table-td">+880 1755884404</td>
+                                    <td class="contact-info-table-td">{{$contact_whatsapp_number}}</td>
                                 </tr>
 
                                 <tr>
                                     <td class="contact-info-table-td">Email</td>
-                                    <td class="contact-info-table-td">ahnafshahriar92@gmail.com</td>
+                                    <td class="contact-info-table-td">{{$contact_email}}</td>
                                 </tr>
                             </tbody>
 
@@ -148,13 +158,13 @@
                                 <div class="row">
 
                                         <div class="facebook col-4 text-left">
-                                            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                                            <a href="{{$contact_facebook}}" target="_blank"><i class="fab fa-facebook"></i></a>
                                         </div>
                                         <div class="youtube col-4 text-center ">
-                                            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                                            <a href="{{$contact_youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>
                                         </div>
                                         <div class="whatsapp col-4 text-right">
-                                            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                            <a href="{{$contact_whatsapp}}" target="_blank"><i class="fab fa-whatsapp"></i></a>
                                         </div>
                                 </div>
                             </div>

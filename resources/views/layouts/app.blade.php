@@ -1,3 +1,12 @@
+<?php
+// universal informations
+    $contact_phone = '+880 1633923851';
+    $contact_email = 'bosonbiggansangho@gmail.com';
+    $contact_whatsapp = 'https://wa.me/1633923851';
+    $contact_whatsapp_number = '+880 1633923851';
+    $contact_facebook = 'https://www.facebook.com/Bosonbigganshongho';
+    $contact_youtube = 'https://www.youtube.com/channel/UCZGrX3xUDUtDFJQIyIMi7BQ';
+?>
 
 
 <!doctype html>

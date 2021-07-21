@@ -62,19 +62,19 @@
                         Contact us
                     </div>
                     <div class="phone-email pb-4" style="font-size: 0.9rem;">
-                        +880 1755884404<br>
-                        ahnafshahriar92@gmail.com <br>
+                        {{$contact_phone}}<br>
+                        {{$contact_email}} <br>
                         Leave us a message <a href="{{route('contact')}}" style="font-size: 0.9rem; color: #ffa8ac !important;">here</a>.
                     </div>
                     <div class="footer-socials pb-4">
                         <div class="facebook">
-                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{$contact_facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         </div>
-                        <div class="facebook">
-                            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <div class="youtube">
+                            <a href="{{$contact_youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>
                         </div>
                         <div class="whatsapp">
-                            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="{{$contact_whatsapp}}" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                     <div class="creator text-center">
