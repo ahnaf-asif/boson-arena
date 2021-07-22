@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="description">
-                        <div class="text-left" style="border: 1px solid rgba(0,0,0,.125);">
-                            <select id="select_lang" onchange="return checkCurrentLang();" class="select_lang" aria-label="Default select example">
+                        <div class="text-left" >
+                            <select id="select_lang" onchange="return checkCurrentLang();" class="select_lang" aria-label="Default select example" style="border: 1px solid rgba(0,0,0,.125);">
                                 <option value="en">English</option>
                                 <option value="bn">বাংলা</option>
                             </select>
