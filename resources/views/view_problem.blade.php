@@ -74,6 +74,10 @@
                             <table class="table table-bordered" >
                                 <tbody class="">
                                     <tr>
+                                        <td>Score</td>
+                                        <td class="text-center">{{$current_problem->score}}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Total submissions</td>
                                         <td class="text-center">{{$number_of_submissions}}</td>
                                     </tr>
