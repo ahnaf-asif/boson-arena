@@ -49,12 +49,6 @@ Route::prefix('article')->group(function(){
     Route::get('/show/{id}', [ArticleController::class, 'show'])->name('view.article');
 });
 
-Route::prefix('problems')->group(function(){
-    Route::get('/', [ProblemController::class, 'index'])->name('problems');
-    Route::get('/search/', [ProblemController::class, 'search'])->name('search.problem.problems');
-//    Route::get('/filter/',[ProblemController::class, 'filterBySubject'])->name('filter.by.subject');
-});
-
 Route::middleware(['auth', 'verified'])->group(function(){
 
     Route::prefix('profile')->group(function(){
@@ -65,11 +59,11 @@ Route::middleware(['auth', 'verified'])->group(function(){
     });
 
     Route::prefix('problems')->group(function(){
-//        Route::get('/', [ProblemController::class, 'index'])->name('problems');
+        Route::get('/', [ProblemController::class, 'index'])->name('problems');
         Route::get('/view/{id}', [ProblemController::class, 'show'])->name('show.problem');
         Route::post('/submit/problem',[ProblemController::class, 'submit'])->name('submit.problem');
         Route::get('/filter/',[ProblemController::class, 'filterBySubject'])->name('filter.by.subject');
-//        Route::get('/search/', [ProblemController::class, 'search'])->name('search.problem.problems');
+        Route::get('/search/', [ProblemController::class, 'search'])->name('search.problem.problems');
         Route::get('/unsolved', [ProblemController::class,'showUnsolved'])->name('unsolved.problems');
     });
 
