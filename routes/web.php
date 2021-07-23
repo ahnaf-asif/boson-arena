@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [Homecontroller::class, 'about'])->name('about');
 Route::get('/resources',[HomeController::class, 'resources'] )->name('resources');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+
 Route::get('/test-vue', function(){
     return view('vue-text');
 });
@@ -48,6 +49,11 @@ Route::prefix('article')->group(function(){
     Route::get('/show/{id}', [ArticleController::class, 'show'])->name('view.article');
 });
 
+Route::prefix('problems')->group(function(){
+    Route::get('/', [ProblemController::class, 'index'])->name('problems');
+    Route::get('/search/', [ProblemController::class, 'search'])->name('search.problem.problems');
+//    Route::get('/filter/',[ProblemController::class, 'filterBySubject'])->name('filter.by.subject');
+});
 
 Route::middleware(['auth', 'verified'])->group(function(){
 
@@ -59,11 +65,11 @@ Route::middleware(['auth', 'verified'])->group(function(){
     });
 
     Route::prefix('problems')->group(function(){
-        Route::get('/', [ProblemController::class, 'index'])->name('problems');
+//        Route::get('/', [ProblemController::class, 'index'])->name('problems');
         Route::get('/view/{id}', [ProblemController::class, 'show'])->name('show.problem');
         Route::post('/submit/problem',[ProblemController::class, 'submit'])->name('submit.problem');
         Route::get('/filter/',[ProblemController::class, 'filterBySubject'])->name('filter.by.subject');
-        Route::get('/search/', [ProblemController::class, 'search'])->name('search.problem.problems');
+//        Route::get('/search/', [ProblemController::class, 'search'])->name('search.problem.problems');
         Route::get('/unsolved', [ProblemController::class,'showUnsolved'])->name('unsolved.problems');
     });
 
