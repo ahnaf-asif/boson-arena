@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    About | Boson
+    About
 @endsection
 
 @section('custom-css')

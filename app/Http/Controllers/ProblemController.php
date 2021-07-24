@@ -16,7 +16,21 @@ class ProblemController extends Controller
         $all_problems = NormalProblem::where('archive', true)
                                         ->orderBy('id', 'DESC')
                                         ->paginate(10)->withQueryString();
-        $ranklist_users = User::select(['name','score'])->orderBy('score','DESC')->take(10)->get();
+
+        User::whereHas('roles', function($q) {
+            $q->where('name', 'author');
+        })->orWhereHas('roles', function($q){
+            $q->where('name', 'admin');
+        })->paginate(30);
+
+        $ranklist_users = User::select(['name','score'])
+                                ->orderBy('score','DESC')
+                                ->whereDoesntHave('roles', function($q) {
+                                    $q->where('name', 'author');
+                                })->whereDoesntHave('roles', function($q){
+                                    $q->where('name', 'admin');
+                                })
+                                ->take(10)->get();
 
         $subjects = Subject::all();
         $solved = [];

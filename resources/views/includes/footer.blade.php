@@ -50,7 +50,7 @@
                                <a href="{{route('blog')}}" class="footer-link">Blog</a>
                            </li>
                            <li class="pb-2">
-                               <a href="#" class="footer-link">Article</a>
+                               <a href="{{route('article')}}" class="footer-link">Article</a>
                            </li>
                        </ul>
                    </div>
