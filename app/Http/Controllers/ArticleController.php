@@ -21,7 +21,11 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::where('archive', true)->find($id);
-        $last_ten = Article::select('id','created_at','title', 'og_image')->orderBy('id', 'desc')->where('archive', true)->take(15)->get();
+        $last_ten = Article::select('id','created_at','title', 'og_image')
+                            ->orderBy('id', 'desc')
+                            ->where('archive', true)
+                            ->where('id', '!=', $id)
+                            ->take(15)->get();
         $data = [
             'article' => $article,
             'last_ten' => $last_ten

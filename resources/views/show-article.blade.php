@@ -58,7 +58,7 @@
                     <a href="{{route('view.article', ['id' => $lst->id])}}" class="article-sidebar">
                         <div class="row article-sidebar-inside my-3">
                             <div class="col-5">
-                                <img src="{{$lst->title}}" alt="title_image" class="w-100">
+                                <img src="{{$lst->og_image}}" alt="title_image" class="w-100">
                             </div>
                             <div class="col-7">
                                 <p>
