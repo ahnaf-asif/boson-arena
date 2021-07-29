@@ -49,9 +49,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.all.users')}}" class="nav-link">
+                            <a href="{{route('admin.normal.users')}}" class="nav-link">
                                 <i class="far fa-user nav-icon"></i>
-                                <p>All users</p>
+                                <p>All normal users</p>
                             </a>
                         </li>
                         <li class="nav-item">

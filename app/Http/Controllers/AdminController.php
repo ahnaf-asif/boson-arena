@@ -186,9 +186,14 @@ class AdminController extends Controller
         $current_gallery->delete();
         return redirect()->route('admin.view.gallery', ['id'=>$gallery_id])->with('success', 'Successfully deleted the image');
     }
-    public function allUsers(){
+    public function normalUsers(){
         $pending_contacts = Contact::where('status', false)->count();
-        $users = User::orderBy('id', 'desc')->paginate(30);
+        $users = User::orderBy('id', 'desc')->whereDoesntHave('roles', function($q) {
+            $q->where('name', 'author');
+        })->whereDoesntHave('roles', function($q){
+            $q->where('name', 'admin');
+        })->paginate(30);
+
         $data = [
             'users' => $users,
             'pending_contacts' => $pending_contacts
@@ -197,7 +202,7 @@ class AdminController extends Controller
     }
     public function allAuthors(){
         $pending_contacts = Contact::where('status', false)->count();
-        $users = User::whereHas('roles', function($q) {
+        $users = User::orderBy('id', 'desc')->whereHas('roles', function($q) {
             $q->where('name', 'author');
         })->orWhereHas('roles', function($q){
             $q->where('name', 'admin');
