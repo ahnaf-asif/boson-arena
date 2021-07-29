@@ -208,4 +208,22 @@ class AdminController extends Controller
         ];
         return view('Admin.all-authors', $data);
     }
+    public function addAuthor($id, $type){
+        if($type == 1){
+            $user = User::whereDoesntHave('roles', function($q){
+                $q->where('name', 'author');
+            })->find($id);
+            if($user){
+                $user->roles()->attach(1);
+            }
+        }else{
+            $user = User::whereHas('roles', function($q){
+                $q->where('name', 'author');
+            })->find($id);
+            if($user){
+                $user->roles()->detach(1);
+            }
+        }
+        return redirect()->route('admin.all.authors');
+    }   
 }

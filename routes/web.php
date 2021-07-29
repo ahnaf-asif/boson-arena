@@ -143,6 +143,8 @@ Route::middleware(['admin'])->group(function(){
         Route::get('/all-users', [AdminController::class, 'allUsers'])->name('admin.all.users');
         Route::get('/all-authors', [AdminController::class, 'allAuthors'])->name('admin.all.authors');
 
+        Route::get('/add-remove-author/{id}/{type}', [AdminController::class, 'addAuthor'])->name('admin.add.author');
+
 
         Route::prefix('contact')->group(function(){
             Route::get('/', [AdminController::class, 'contact'])->name('admin.contact');

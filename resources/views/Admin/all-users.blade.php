@@ -10,16 +10,17 @@
 
 @section('content')
     <div class="container">
-        <table class="table table-responsive">
+        <table class="table table-responsive table-bordered">
             <thead>
                 <tr>
-                    <th class="font-weight-bold">Name</th>
-                    <th class="font-weight-bold">Email</th>
-                    <th class="font-weight-bold">username</th>
-                    <th class="font-weight-bold">Institution</th>
-                    <th class="font-weight-bold">Phone</th>
-                    <th class="font-weight-bold">Address</th>
-                    <th class="font-weight-bold"> Social Media Link</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">Name</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">Email</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">username</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">Institution</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">Phone</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">Address</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">Social Media Link</th>
+                    <th style="min-width: 200px;" class="font-weight-bold">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                         <td>{{$user->phone}}</td>
                         <td>{{$user->address}}</td>
                         <td><a target="_blank" href="{{$user->social_media_link}}">{{$user->social_media_link}}</a></td>
+                        <td><a class="btn btn-black" href="{{route('admin.add.author', ['id'=>$user->id, 'type'=>1])}}">Add as Author</a></td>
                     </tr>
                 @endforeach
             </tbody>
