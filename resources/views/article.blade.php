@@ -30,7 +30,7 @@
                         <div class="card-body position-relative" style="padding-left: 0; padding-right: 0;">
 
                             <div class="card-title">
-                                <h3 class="">{!! $article->title !!}</h3>
+                                <a href="{{route('view.article', ['id'=>$article->id])}}" class="blog-header-link"><h3 class="font-weight-bold">{!! $article->title !!}</h3></a>
                                 <p><small>{{$article->author_name?$article->author_name:$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
                             </div>
                             <p class="card-text">

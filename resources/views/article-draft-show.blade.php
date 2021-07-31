@@ -15,7 +15,7 @@
         <div class="preview-blog-header mb-5">
             <h1 class="text-center">{!! $current_article->title !!}</h1>
             <p class="text-muted text-center">
-                <small>{{$current_article->created_at->format('y-m-d h:i a')}} </small>
+                <small>{{$current_article->author_name?$current_article->author_name:$current_article->user->name}}, {{$current_article->created_at->format('y-m-d h:i a')}} </small>
             </p>
         </div>
         <div class="preview-body">

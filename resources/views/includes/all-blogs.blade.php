@@ -1,3 +1,5 @@
+
+
 <div class="all-blogs">
 
     <div class="row" style="row-gap: 1.5rem;">
@@ -14,14 +16,14 @@
                             <img
                                 src="{{$blog->og_image}}"
                                 class="card-img-top"
-                                alt="title image"
+                                alt="title image" 
                             />
                         </div>
                         <div class="card-body position-relative" style="padding-left: 0; padding-right: 0;">
                             <span class="badge translate-middle bg-success blog-badge">{{$blog->subject->name}}</span>
 
                             <div class="card-title">
-                                <h3 class="font-weight-bold">{!! $blog->title !!}</h3>
+                                <a href="{{route('view.blog', ['id'=>$blog->id])}}" class="blog-header-link"><h3 class="font-weight-bold">{!! $blog->title !!}</h3></a>
                                 <p><small>{{$blog->author_name?$blog->author_name:$blog->user->name}} - {{$blog->created_at->format('d M, Y')}}</small></p>
                             </div>
                             <p class="card-text">

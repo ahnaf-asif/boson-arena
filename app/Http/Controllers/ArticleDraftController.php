@@ -44,7 +44,7 @@ class ArticleDraftController extends Controller
         $new_article->og_image = $request->og_image;
         $new_article->short_description = $request->short_description;
         $new_article->article = $request->article;
-
+        $new_article->author_name = $request->author_name;
         $new_article->save();
 
         return redirect()->route('article.draft')->with('success', 'Successfully Created an Article');
@@ -79,6 +79,7 @@ class ArticleDraftController extends Controller
 
     public function update(Request $request, $id)
     {
+        // return $request;
         $current_article = Article::find($id);
         if($current_article->user_id != Auth::user()->id){
             return redirect()->route('article.draft')->with('error', 'You can not visit this page');
@@ -86,6 +87,7 @@ class ArticleDraftController extends Controller
         $current_article->title = $request->article_title;
         $current_article->short_description = $request->short_description;
         $current_article->article = $request->article;
+        $current_article->author_name = $request->author_name;
         $current_article->save();
 
         return redirect()->route('show.article', ['id' => $id])->with('success', 'successfully updated the article');

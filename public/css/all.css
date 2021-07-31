@@ -28,6 +28,14 @@ blockquote{
     padding-left: 10px;
 }
 
+.blog-header-link{
+    text-decoration: none;
+    color: black;
+}
+.blog-header-link:hover{
+    text-decoration: none;
+}
+
 @media (min-width: 950px){
     .gallery-cover-picture{
         height: 150px;

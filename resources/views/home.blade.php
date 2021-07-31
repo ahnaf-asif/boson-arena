@@ -53,7 +53,10 @@
                         </div>
                         <div class="card-body position-relative" style="padding-left: 0;padding-right: 0;">
                             <div class="card-title">
-                                <h3 class="font-weight-bold">{!! $article->title !!}</h3>
+                                
+                                
+                                <a href="{{route('view.article', ['id'=>$article->id])}}" class="blog-header-link"><h3 class="font-weight-bold">{!! $article->title !!}</h3></a>
+
                                 <p><small>{{$article->author_name?$article->author_name:$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
                             </div>
                             <p class="card-text medium-paragraph">
@@ -67,7 +70,7 @@
             @if (count($all_articles) > 0)
                 <div class="mb-3">
                     <p class="text-center">
-                        <a href="{{route('article')}}" class="btn btn-primary">All Articles</a>
+                        <a href="{{route('article')}}" class="btn btn-black">All Articles</a>
                     </p>
                 </div>
             @endif
@@ -99,7 +102,7 @@
                             <span class="badge translate-middle bg-success blog-badge">{{$blog->subject->name}}</span>
 
                             <div class="card-title">
-                                <h3 class="font-weight-bold">{!! $blog->title !!}</h3>
+                                <a href="{{route('view.blog', ['id'=>$blog->id])}}" class="blog-header-link"><h3 class="font-weight-bold">{!! $blog->title !!}</h3></a>
                                 <p><small>{{$blog->author_name?$blog->author_name:$blog->user->name}} - {{$blog->created_at->format('Y:m:d h:i a')}}</small></p>
                             </div>
                             <p class="card-text medium-paragraph">
@@ -113,7 +116,7 @@
             @if (count($all_blogs) > 0)
                 <div class="mb-3">
                     <p class="text-center">
-                        <a href="{{route('blog')}}" class="btn btn-primary">All Blogs</a>
+                        <a href="{{route('blog')}}" class="btn btn-black">All Blogs</a>
                     </p>
                 </div>
             @endif

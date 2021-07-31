@@ -13,6 +13,18 @@
 
 @section('custom-css')
     <link rel="stylesheet" href="{{asset('css/blog.css')}}">
+    <style>
+        .article-sidebar{
+            text-decoration: none;
+            color: black;
+        }
+        .article-sidebar:hover{
+            text-decoration: none;
+        }
+        .article-sidebar-inside:hover{
+            background: #e8e8e8;
+        }
+    </style>
 @endsection
 
 
@@ -49,7 +61,7 @@
                 <hr>
 
                 @foreach($related_blogs as $lst)
-                    <a href="{{route('view.blog', ['id' => $lst->id])}}" class="article-sidebar" style="text-decoration:none;color:black;">
+                    <a href="{{route('view.blog', ['id' => $lst->id])}}" class="article-sidebar">
                         <div class="row article-sidebar-inside my-3 align-items-center">
                             <div class="col-5">
                                 <img src="{{$lst->og_image}}" alt="title_image" class="w-100">
