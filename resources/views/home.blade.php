@@ -64,6 +64,13 @@
                     </div>
                 </div>
             @endforeach
+            @if (count($all_articles) > 0)
+                <div class="mb-3">
+                    <p class="text-center">
+                        <a href="{{route('article')}}" class="btn btn-primary">All Articles</a>
+                    </p>
+                </div>
+            @endif
         </div>
     </div>
 
@@ -103,6 +110,13 @@
                     </div>
                 </div>
             @endforeach
+            @if (count($all_blogs) > 0)
+                <div class="mb-3">
+                    <p class="text-center">
+                        <a href="{{route('blog')}}" class="btn btn-primary">All Blogs</a>
+                    </p>
+                </div>
+            @endif
         </div>
     </div>
 

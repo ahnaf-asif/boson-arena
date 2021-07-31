@@ -30,10 +30,10 @@ class HomeController extends Controller
     {
         $all_blogs = Blog::orderBy('id','desc')
                             ->where('archive', true)
-                            ->take(6)->get();
+                            ->take(3)->get();
         $all_articles = Article::orderBy('id','desc')
                             ->where('archive', true)
-                            ->take(6)->get();
+                            ->take(3)->get();
         $data = [
             'all_blogs' => $all_blogs,
             'all_articles' => $all_articles
