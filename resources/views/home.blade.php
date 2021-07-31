@@ -11,7 +11,7 @@
 @section('content')
 
 {{--@include ('includes.banner')--}}
-<div class="container my-1 mb-5">
+<div class="container my-1">
     <div class="row" style="">
         <div class="col-lg-6" style="display: flex;align-items: center">
             <img style="width:100%;" src="{{asset('images/home-page-image.jpg')}}" alt="home-page-image">
@@ -27,6 +27,10 @@
         </div>
 
     </div>
+</div>
+
+<div class="container affiliated-image mb-4">
+    <img style="width:100%;height:auto;" src="{{asset('images/affiliated_bdmo3.png')}}" alt="Affiliated By BDMO">
 </div>
 
 @if(count($all_articles) != 0)
