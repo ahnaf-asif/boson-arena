@@ -29,7 +29,7 @@
     </div>
 </div>
 
-<div class="container affiliated-image mb-4">
+<div class="container affiliated-image mb-1">
     <img style="width:100%;height:auto;" src="{{asset('images/affiliated_bdmo3.png')}}" alt="Affiliated By BDMO">
 </div>
 
