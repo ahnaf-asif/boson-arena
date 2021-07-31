@@ -23,6 +23,10 @@
     top: 60px;
     right: 0;
 }
+blockquote{
+    border-left: 10px solid blue;
+    padding-left: 10px;
+}
 
 @media (min-width: 950px){
     .gallery-cover-picture{
