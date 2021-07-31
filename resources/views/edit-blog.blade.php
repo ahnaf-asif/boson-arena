@@ -24,6 +24,15 @@
                 <label class="form-label" for="blog_title" >Blog Title</label>
             </div>
 
+            @if (Auth::user()->hasRole('admin'))
+                <div class="form-outline mb-4">
+                    <input value="{{ $current_blog->author_name?$current_blog->author_name:Auth::user()->name }}" type="text" id="author_name" name="author_name" class="form-control" required/>
+                    <label class="form-label" for="author_name" >Author Name</label>
+                </div>
+            @else
+                <input type="hidden" name="author_name" value="{{Auth::user()->name}}">
+            @endif
+
             <div class="mb-4">
                 <label class="form-label" for="subjects" >Subject</label>
                 <select name="subject" class="form-select" id="subjects">

@@ -15,7 +15,7 @@ Preview - {{$current_blog->title}}
         <div class="preview-blog-header mb-5">
             <h1 class="text-center">{!! $current_blog->title !!}</h1>
             <p class="text-muted text-center">
-                <small>{{$current_blog->subject->name}}, {{$current_blog->created_at->format('y-m-d h:i a')}} </small>
+                <small>{{$current_blog->author_name?$current_blog->author_name:$current_blog->user->name}}, {{$current_blog->subject->name}}, {{$current_blog->created_at->format('y-m-d h:i a')}} </small>
             </p>
         </div>
         <div class="preview-body">

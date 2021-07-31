@@ -45,6 +45,7 @@ class BlogDraftController extends Controller
         $current_blog->short_description = $req->short_description;
         $current_blog->blog=$req->blog;
         $current_blog->og_image = $req->og_image;
+        $current_blog->author_name = $req->author_name;
 
         $current_blog->save();
 
@@ -86,7 +87,7 @@ class BlogDraftController extends Controller
         $current_blog->subject_id = $req->subject;
         $current_blog->short_description = $req->short_description;
         $current_blog->blog=$req->blog;
-
+        $current_blog->author_name=$req->author_name;
         $current_blog->save();
 
         return redirect()->route('preview.blog', ['id'=>$current_blog->id])->with('success','Successfully updated blog');

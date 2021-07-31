@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index(){
 
-        $all_blogs = Blog::select('id','title','user_id','subject_id','created_at','short_description', 'og_image')
+        $all_blogs = Blog::select('author_name','id','title','user_id','subject_id','created_at','short_description', 'og_image')
                     ->orderBy('id', 'desc')
                     ->where('archive', 1)
                     ->paginate(8);
@@ -27,7 +27,7 @@ class BlogController extends Controller
         if(!$current_blog->archive){
             return redirect()->back()->with('error', 'This blog is currently unavailable');
         }
-        $related_blogs = Blog::select('id', 'title', 'og_image')
+        $related_blogs = Blog::select('author_name','id', 'title', 'og_image', 'created_at')
                                 ->where('archive', 1)
                                 ->where('subject_id', $current_blog->subject_id)
                                 ->where('id', '!=', $id)->get();
@@ -39,7 +39,7 @@ class BlogController extends Controller
     }
     public function search(Request $req){
 
-        $all_blogs = Blog::select('id','og_image','title','user_id','subject_id','created_at','short_description')
+        $all_blogs = Blog::select('author_name','id','og_image','title','user_id','subject_id','created_at','short_description')
             ->orderBy('id', 'desc')
             ->where('title','like','%'.$req->search.'%')
             ->where('archive', 1)
@@ -58,7 +58,7 @@ class BlogController extends Controller
 
         if(!isset($req->filtered_subjects))return redirect()->route('blog');
 
-        $all_blogs = Blog::select('id','og_image','title','user_id','subject_id','created_at','short_description')
+        $all_blogs = Blog::select('author_name','id','og_image','title','user_id','subject_id','created_at','short_description')
                         ->whereIn('subject_id', $req->filtered_subjects)
                         ->orderBy('id','desc')
                         ->paginate(8)

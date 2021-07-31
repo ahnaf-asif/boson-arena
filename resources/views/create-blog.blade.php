@@ -36,6 +36,23 @@
                     </span>
                 @enderror
             </div>
+            
+            @if (Auth::user()->hasRole('admin'))
+                <div class="form-outline mb-4">
+                    <input value="{{ Auth::user()->name }}" type="text" id="author_name" name="author_name" class="form-control" required/>
+                    <label class="form-label" for="author_name" >Author Name</label>
+                    @error('author_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            @else
+                <input type="hidden" name="author_name" value="{{Auth::user()->name}}">
+            @endif
+
+
+
             <div class="mb-4">
                 <label class="form-label" for="subjects" >Subject</label>
                 <select name="subject" class="form-select" id="subjects">

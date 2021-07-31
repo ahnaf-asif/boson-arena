@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -73,5 +74,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function articles():HasMany{
         return $this->hasMany(Article::class)->orderBy('id', 'desc');
+    }
+    public function hasRole($role_name){
+        foreach(Auth::user()->roles as $role){
+            if($role->name == $role_name)return true;
+        }
+        return false;
     }
 }

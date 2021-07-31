@@ -22,7 +22,7 @@
 
                             <div class="card-title">
                                 <h3 class="font-weight-bold">{!! $blog->title !!}</h3>
-                                <p><small>{{$blog->user->name}} - {{$blog->created_at->format('d M, Y')}}</small></p>
+                                <p><small>{{$blog->author_name?$blog->author_name:$blog->user->name}} - {{$blog->created_at->format('d M, Y')}}</small></p>
                             </div>
                             <p class="card-text">
                                 {!! $blog->short_description !!}

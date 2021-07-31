@@ -31,7 +31,7 @@
 
                             <div class="card-title">
                                 <h3 class="">{!! $article->title !!}</h3>
-                                <p><small>{{$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
+                                <p><small>{{$article->author_name?$article->author_name:$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
                             </div>
                             <p class="card-text">
                                 {!! $article->short_description !!}

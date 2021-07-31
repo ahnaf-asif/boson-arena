@@ -31,7 +31,7 @@
 
     <div class="container my-5">
         <h1 class="big-header">{!! $article->title !!}</h1>
-        <p><small>{{$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
+        <p><small>{{$article->author_name?$article->author_name:$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
         <hr>
         <div class="mb-1"></div>
         <div class="articles row">

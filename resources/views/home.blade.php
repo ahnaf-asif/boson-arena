@@ -54,7 +54,7 @@
                         <div class="card-body position-relative" style="padding-left: 0;padding-right: 0;">
                             <div class="card-title">
                                 <h3 class="font-weight-bold">{!! $article->title !!}</h3>
-                                <p><small>{{$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
+                                <p><small>{{$article->author_name?$article->author_name:$article->user->name}} - {{$article->created_at->format('d M, Y')}}</small></p>
                             </div>
                             <p class="card-text medium-paragraph">
                                 {!! $article->short_description !!}
@@ -100,7 +100,7 @@
 
                             <div class="card-title">
                                 <h3 class="font-weight-bold">{!! $blog->title !!}</h3>
-                                <p><small>{{$blog->user->name}} - {{$blog->created_at->format('Y:m:d h:i a')}}</small></p>
+                                <p><small>{{$blog->author_name?$blog->author_name:$blog->user->name}} - {{$blog->created_at->format('Y:m:d h:i a')}}</small></p>
                             </div>
                             <p class="card-text medium-paragraph">
                                 {!! $blog->short_description !!}
