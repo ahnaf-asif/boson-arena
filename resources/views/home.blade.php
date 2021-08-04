@@ -11,7 +11,7 @@
 @section('content')
 
 {{--@include ('includes.banner')--}}
-<div class="container my-1">
+<div class="container">
     <div class="row" style="">
         <div class="col-lg-6" style="display: flex;align-items: center">
             <img style="width:100%;" src="{{asset('images/home-page-image.jpg')}}" alt="home-page-image">
@@ -33,7 +33,7 @@
     {{-- <img style="width:100%;height:auto;" src="{{asset('images/affiliated_bdmo3.png')}}" alt="Affiliated By BDMO"> --}}
 
     <div class="affiliated">
-        <h1 class="text-center">Our Affiliate</h1>
+        <h1 class="text-center big-header">Our Affiliate</h1>
         <hr>
         <div class="text-center">
             <img src="{{asset('images/bdmo_logo.png')}}" alt="bdmo_logo">
