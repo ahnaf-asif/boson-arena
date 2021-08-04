@@ -29,15 +29,25 @@
     </div>
 </div>
 
-<div class="container affiliated-image mb-1">
-    <img style="width:100%;height:auto;" src="{{asset('images/affiliated_bdmo3.png')}}" alt="Affiliated By BDMO">
+<div class="container mb-1">
+    {{-- <img style="width:100%;height:auto;" src="{{asset('images/affiliated_bdmo3.png')}}" alt="Affiliated By BDMO"> --}}
+
+    <div class="affiliated">
+        <h1 class="text-center">Our Affiliate</h1>
+        <hr>
+        <div class="text-center">
+            <img src="{{asset('images/bdmo_logo.png')}}" alt="bdmo_logo">
+        </div>
+        <hr>
+    </div>
+
 </div>
 
 @if(count($all_articles) != 0)
 
     <div class="latest-blogs container my-1 mb-5">
         <h1 class="big-header text-center mb-4">Latest Articles</h1>
-        <hr>
+        {{-- <hr> --}}
         <div class="row " style="row-gap: 1.5rem;">
 
             @foreach($all_articles as $article)
