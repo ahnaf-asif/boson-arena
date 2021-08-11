@@ -72,4 +72,5 @@ Preview - {{$current_blog->title}}
 
 @section('custom-js')
     <script src="{{asset('js/blog.js')}}"></script>
+    @include('includes.mathjax')
 @endsection

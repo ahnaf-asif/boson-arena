@@ -162,11 +162,6 @@ Route::middleware(['admin'])->group(function(){
             Route::get('/delete/gallery/{id}', [AdminController::class, 'deleteGallery'])->name('admin.delete.gallery');
         });
 
-
-
-
     });
-
-
 
 });

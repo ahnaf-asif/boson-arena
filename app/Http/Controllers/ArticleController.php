@@ -32,5 +32,4 @@ class ArticleController extends Controller
         ];
         return view('show-article', $data);
     }
-
 }

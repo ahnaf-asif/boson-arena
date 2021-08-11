@@ -85,7 +85,6 @@
 @endsection
 
 
-
 @section('custom-js')
-
+    @include('includes.mathjax')
 @endsection
