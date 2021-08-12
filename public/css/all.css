@@ -46,8 +46,11 @@ blockquote{
 }
 
 .blog-body .body p{
-    overflow: auto;
+    overflow-x: auto;
+    /*padding-bottom: 3px;*/
+    /*scroll-padding-top: 10px;*/
 }
 .blog-description p{
-    overflow: auto;
+    overflow-x: auto;
+    /*padding-bottom: 3px;*/
 }
