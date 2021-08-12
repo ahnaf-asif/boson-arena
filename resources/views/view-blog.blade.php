@@ -38,7 +38,7 @@
                         <h2 class="font-weight-bold text-center">{!! $current_blog->title !!}</h2>
                         <p class="text-muted text-center"><small style="font-size: 13px;">{{$current_blog->author_name?$current_blog->author_name:$current_blog->user->name}}, {{$current_blog->created_at->format('Y:m:d h:i a')}}, <span class="font-weight-bold">{{$current_blog->subject->name}}</span></small></p>
                     </div>
-                    <div class="body mt-5">
+                    <div class="body mt-5" style="max-width:100% !important;">
                         <div class="preview-image-blog mb-4">
                             <img src="{{$current_blog->og_image}}" alt="preview-image" style="width: 100%;">
                         </div>

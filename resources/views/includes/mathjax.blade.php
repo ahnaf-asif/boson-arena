@@ -2,6 +2,9 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            "HTML-CSS": {
+                linebreaks: { automatic: true, width: "container" }
+            }
         });
   </script>

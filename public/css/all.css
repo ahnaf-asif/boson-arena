@@ -44,3 +44,10 @@ blockquote{
         overflow:hidden;
     }
 }
+
+.blog-body .body p{
+    overflow: auto;
+}
+.blog-description p{
+    overflow: auto;
+}
