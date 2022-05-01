@@ -61,4 +61,7 @@ class HomeController extends Controller
         ];
         return view('faq', $data);
     }
+    public function magazines(){
+        return view('magazines');
+    }
 }

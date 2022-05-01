@@ -29,6 +29,23 @@
     </div>
 </div>
 
+<div class="container mb-1 mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="message big-paragraph" style="color:#696969;">
+                <h1 style="color:#696969" class=" pb-4 text-center big-header">বিজ্ঞান বাতায়ন</h1>
+                <div class="message-texts px-4">
+                    <p>একটি বিজ্ঞানমনস্ক জাতী গঠন করার যে মহৎ উদ্দেশ্য নিয়ে বিদেশের আরাম আয়েশের জীবন ছেড়ে দেশে চলে এসেছিলেন তাদের মধ্যে অন্যতম জামাল নজরুল ইসলাম স্যার। আমাদের বোসন বিজ্ঞান সংঘের মূল উদ্দেশ্য এই বিজ্ঞান মনস্ক জাতি গঠনে অগ্রণী ভূমিকা পালন করা। সে কারণের জামাল স্যার কে নিয়েই আমাদের ম্যাগাজিনের প্রথম ফিচার হয়। বিজ্ঞান মনস্ক জাতি গঠনের সহায়ক সবরকম কাজই আমরা করে চলেছি। বিজ্ঞান বাতায়ন ও সে রকম একটি চেষ্টা। আমাদের বিজ্ঞান বাতায়নের পিডিএফ পেতে ভিজিট করুন <a href="{{ route('magazines') }}">এখানে</a>।</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="display: flex;align-items: center">
+            <img style="width:100%;" src="{{asset('images/biggan-batayon-2.jpg')}}" alt="biggan batayon">
+        </div>
+    </div>
+</div>
+
 <div class="container mb-1">
     {{-- <img style="width:100%;height:auto;" src="{{asset('images/affiliated_bdmo3.png')}}" alt="Affiliated By BDMO"> --}}
 

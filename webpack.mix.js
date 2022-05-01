@@ -15,3 +15,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/vue-stuff.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.disableNotifications();

@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [Homecontroller::class, 'about'])->name('about');
 Route::get('/resources',[HomeController::class, 'resources'] )->name('resources');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/magazines', [HomeController::class, 'magazines'])->name('magazines');
 
 Route::get('/test-vue', function(){
     return view('vue-text');
